@@ -5,8 +5,8 @@ const Navbar = () => {
 
     const links = <>
         <Link to={'/'}><li className="btn-ghost text-xs px-4 py-2 uppercase">Home</li></Link>
-        <Link to={'/'}><li className="btn-ghost text-xs px-4 py-2 uppercase">All properties</li></Link>
-        <Link to={'/'}><li className="btn-ghost text-xs px-4 py-2 uppercase">Dashboard</li></Link>
+        <Link to={'/all-properties'}><li className="btn-ghost text-xs px-4 py-2 uppercase">All properties</li></Link>
+        <Link to={'/dashboard'}><li className="btn-ghost text-xs px-4 py-2 uppercase">Dashboard</li></Link>
         {/* Todo these route should be private */}
         <Link to={'/'}><li className="btn-ghost text-xs px-4 py-2 uppercase">My Profile</li></Link>
         <Link to={'/'}><li className="btn-ghost text-xs px-4 py-2 uppercase">Wishlist</li></Link>
@@ -15,7 +15,7 @@ const Navbar = () => {
     </>
 
     return (
-        <div className="fixed z-10">
+        <div className="fixed z-10 w-[1280px]">
             <div className="navbar bg-slate-900 text-white bg-opacity-30">
                 <div className="navbar-start">
                     <div className="dropdown">
