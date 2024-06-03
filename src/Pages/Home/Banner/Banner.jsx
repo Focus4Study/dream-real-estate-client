@@ -1,25 +1,20 @@
-import Flicking, { MoveEvent, WillChangeEvent } from "@egjs/react-flicking";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 
 const Banner = () => {
-
-
     return (
-        <div className='mx-auto'>
-            <Flicking
-                viewportTag="div"
-                cameraTag="div"
-                cameraClass=""
-                renderOnSameKey={false}
-                align="center"
-                onMove={(e: MoveEvent) => { }}
-                onWillChange={(e: WillChangeEvent) => { }}
-                horizontal={true}
-                circular={true}
-            >
-                <div>panel 0</div>
-                <div>panel 1</div>
-                <div>panel 2</div>
-            </Flicking>
+        <div>
+            <Carousel className="text-center mb-36">
+                <div>
+                    <img className="max-h-[600px]" src="https://i.ibb.co/J7rrQ8r/2151004063.jpg" />
+                </div>
+                <div>
+                    <img className="max-h-[600px]" src="https://i.ibb.co/bvqXC5m/2149661456.jpg" />
+                </div>
+                <div>
+                    <img className="max-h-[600px]" src="https://i.ibb.co/L9KmsLt/2149836942.jpg" />
+                </div>
+            </Carousel>
         </div>
     );
 };
