@@ -40,7 +40,7 @@ const DashboardNavbar = () => {
                                 </li>
                             </Link>
 
-                            <Link to={'/wishlist'}>
+                            <Link to={'/dashboard/wishlist'}>
                                 <li className="rounded-sm dark:bg-gray-100 dark:text-gray-900">
                                     <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-5 h-5 fill-current dark:text-gray-600">
@@ -51,7 +51,7 @@ const DashboardNavbar = () => {
                                 </li>
                             </Link>
 
-                            <Link to={'/property-bought'}>
+                            <Link to={'/dashboard/property-bought'}>
                                 <li className="rounded-sm dark:bg-gray-100 dark:text-gray-900">
                                     <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
                                         <TbHomeDollar className="w-5 h-5 dark:text-gray-600" />
@@ -59,12 +59,14 @@ const DashboardNavbar = () => {
                                     </a>
                                 </li>
                             </Link>
-                            <li className="rounded-sm dark:bg-gray-100 dark:text-gray-900">
-                                <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                                    <GoCodeReview className="w-5 h-5 fill-current dark:text-gray-600" />
-                                    <span>My Reviews</span>
-                                </a>
-                            </li>
+                            <Link to={'/dashboard/my-reviews'}>
+                                <li className="rounded-sm dark:bg-gray-100 dark:text-gray-900">
+                                    <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
+                                        <GoCodeReview className="w-5 h-5 fill-current dark:text-gray-600" />
+                                        <span>My Reviews</span>
+                                    </a>
+                                </li>
+                            </Link>
 
                             <li className="rounded-sm">
                                 <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
@@ -78,15 +80,17 @@ const DashboardNavbar = () => {
                         </ul>
                     </div>
                 </div>
-                <div className="flex items-center p-2 mt-12 space-x-4 justify-self-end">
-                    <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="w-12 h-12 rounded-lg dark:bg-gray-500" />
-                    <div>
-                        <h2 className="text-lg font-semibold">Leroy Jenkins</h2>
-                        <span className="flex items-center space-x-1">
-                            <a rel="noopener noreferrer" href="#" className="text-xs hover:underline dark:text-gray-600">View profile</a>
-                        </span>
+                <Link to={'/dashboard/profile'}>
+                    <div className="flex items-center p-2 mt-12 space-x-4 justify-self-end">
+                        <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="w-12 h-12 rounded-lg dark:bg-gray-500" />
+                        <div>
+                            <h2 className="text-lg font-semibold">Leroy Jenkins</h2>
+                            <span className="flex items-center space-x-1">
+                                <p className="text-xs hover:underline dark:text-gray-600">View profile</p>
+                            </span>
+                        </div>
                     </div>
-                </div>
+                </Link>
             </div>
         </div>
     );

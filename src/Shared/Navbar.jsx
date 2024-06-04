@@ -8,7 +8,7 @@ const Navbar = () => {
         <Link to={'/all-properties'}><li className="btn-ghost text-xs px-4 py-2 uppercase">All properties</li></Link>
         <Link to={'/dashboard'}><li className="btn-ghost text-xs px-4 py-2 uppercase">Dashboard</li></Link>
         {/* Todo these route should be private */}
-        <Link to={'/'}><li className="btn-ghost text-xs px-4 py-2 uppercase">My Profile</li></Link>
+        <Link to={'/dashboard/profile'}><li className="btn-ghost text-xs px-4 py-2 uppercase">My Profile</li></Link>
         <Link to={'/wishlist'}><li className="btn-ghost text-xs px-4 py-2 uppercase">Wishlist</li></Link>
         <Link to={'/property-bought'}><li className="btn-ghost text-xs px-4 py-2 uppercase">Property bought</li></Link>
         <Link to={'/my-reviews'}><li className="btn-ghost text-xs px-4 py-2 uppercase">My reviews</li></Link>

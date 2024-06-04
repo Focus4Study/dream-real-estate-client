@@ -9,7 +9,7 @@ import ReviewCard from "../ReviewCard";
 
 const Reviews = () => {
     return (
-        <div className="pt-20">
+        <div className="pt-5">
             <ReviewCard></ReviewCard>
         </div>
     );

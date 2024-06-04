@@ -1,9 +1,9 @@
-import DashboardNavbar from "../DashboardNavbar/DashboardNavbar";
+import ProfilePage from "../../ProfilePage/ProfilePage/ProfilePage";
 
 const Dashboard = () => {
     return (
         <div>
-            <DashboardNavbar></DashboardNavbar>
+            <ProfilePage></ProfilePage>
         </div>
     );
 };

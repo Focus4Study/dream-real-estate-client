@@ -2,7 +2,7 @@
 
 const PropertyBought = () => {
     return (
-        <div className="pt-20">
+        <div>
             <div className="container p-2 mx-auto sm:p-4 dark:text-gray-800">
                 <h2 className="text-2xl font-semibold leading-tight text-center mb-10">Property Bought</h2>
                 <div className="overflow-x-auto">
