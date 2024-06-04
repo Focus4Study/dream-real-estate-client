@@ -7,6 +7,9 @@ import AllProperties from "../Pages/AllProperties/AllProperties/AllProperties";
 import DetailsPage from "../Pages/DetailsPage/DetailsPage/DetailsPage";
 import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
 import DashboardLayout from "../Layout/DashboardLayout";
+import Wishlist from "../Pages/Wishlist/Wishlist/Wishlist";
+import PropertyBought from "../Pages/PropertyBought/PropertyBought/PropertyBought";
+import Reviews from "../Pages/Reviews/Reviews/Reviews";
 
   export const router = createBrowserRouter([
     {
@@ -24,6 +27,18 @@ import DashboardLayout from "../Layout/DashboardLayout";
         {
             path:"/details-page",
             element:<DetailsPage></DetailsPage>
+        },
+        {
+            path:"/wishlist",
+            element:<Wishlist></Wishlist>
+        },
+        {
+            path:"/property-bought",
+            element:<PropertyBought></PropertyBought>
+        },
+        {
+            path:"/my-reviews",
+            element:<Reviews></Reviews>
         },
       ]
     },
