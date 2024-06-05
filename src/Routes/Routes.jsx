@@ -11,6 +11,8 @@ import PropertyBought from "../Pages/PropertyBought/PropertyBought/PropertyBough
 import Reviews from "../Pages/Reviews/Reviews/Reviews";
 import DashboardLayout from "../Layout/DashboardLayout";
 import ProfilePage from "../Pages/ProfilePage/ProfilePage/ProfilePage";
+import Login from "../Pages/Login/Login/Login";
+import Registration from "../Pages/Registration/Registration/Registration";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +30,14 @@ export const router = createBrowserRouter([
       {
         path: "/details-page",
         element: <DetailsPage></DetailsPage>
+      },
+      {
+        path: "/login",
+        element: <Login></Login>
+      },
+      {
+        path: "/register",
+        element: <Registration></Registration>
       },
 
 
