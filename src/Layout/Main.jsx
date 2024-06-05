@@ -6,7 +6,7 @@ import Navbar from "../Shared/Navbar";
 
 const Main = () => {
     return (
-        <div className="max-w-screen-xl mx-auto"> 
+        <div className="container mx-auto"> 
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>

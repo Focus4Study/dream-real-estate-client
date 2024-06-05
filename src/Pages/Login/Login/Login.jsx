@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../Context/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 
 const Login = () => {
@@ -76,6 +77,9 @@ const Login = () => {
 
     return (
         <div className="container mx-auto">
+            <Helmet>
+                <title>DR-Estate | Login</title>
+            </Helmet>
             <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://i.ibb.co/XCDQKSR/20602937-6325230.jpg)' }}>
                 <div className="hero-overlay bg-opacity-60 rounded-lg"></div>
                 <div className="hero-content text-center text-neutral-content">

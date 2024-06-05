@@ -15,7 +15,7 @@ const Navbar = () => {
     </>
 
     return (
-        <div className="fixed z-10 w-[1280px]">
+        <div className="fixed z-10 w-full container">
             <div className="navbar bg-slate-900 text-white bg-opacity-30">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -28,9 +28,12 @@ const Navbar = () => {
                             }
                         </ul>
                     </div>
-                    <h1 className="btn btn-ghost text-xl">Dreams Real Estate</h1>
+                    <div className="flex">
+                        <img className="w-10" src="https://i.ibb.co/MGRkxpG/Logo-removebg.png" alt="" />
+                        <h1 className="btn btn-ghost text-xl font-serif">Dreams Real Estate</h1>
+                    </div>
                 </div>
-                <div className="navbar-center hidden ml-20 lg:flex">
+                <div className="hidden ml-20 lg:flex navbar-center">
                     <ul className="menu menu-horizontal px-1">
                         {
                             links

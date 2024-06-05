@@ -8,8 +8,16 @@ const Properties = () => {
                 <img className="-ml-20" src="https://i.ibb.co/fYSHjRH/2151264503.jpg" alt="" />
             </div>
             <div className="w-9/12">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam suscipit nemo veniam repellendus nisi minus, doloremque quidem commodi corrupti? Iusto rerum quasi necessitatibus expedita unde debitis perferendis dignissimos, ut temporibus.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam suscipit nemo veniam repellendus nisi minus, doloremque quidem commodi corrupti? Iusto rerum quasi necessitatibus expedita unde debitis perferendis dignissimos, ut temporibus.</p>
+                <h1 className="text-7xl font-serif font-bold -mt-20 mb-8">Welcome to Dreams Real Estate</h1>
+                <p>Discover your dream home with Dreams Real Estate, where we turn your property aspirations into reality. Whether you&apos;sre looking to buy, sell, or rent, our dedicated team of experts is here to guide you every step of the way.</p>
+                    <br />
+                    <p>
+                        At Dreams Real Estate, we understand that finding the perfect home is more than just a transaction—it&apos;s about creating a space where you can build memories and enjoy a lifetime of happiness. Our comprehensive listings feature a diverse range of properties to suit every need and budget, from cozy apartments to luxurious estates.
+                    </p>
+                    <br />
+                    <p>
+                         Join our community of satisfied clients and experience the difference of personalized service, local market expertise, and unwavering commitment to your satisfaction. Your dream home is just a click away—start your journey with Dreams Real Estate today!
+                    </p>
             </div>
         </div>
     );

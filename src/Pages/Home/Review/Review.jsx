@@ -5,7 +5,7 @@ import { Pagination } from 'swiper/modules';
 
 const Review = () => {
     return (
-        <div className='bg-fixed rounded-lg py-16' style={{backgroundImage: 'url(https://i.ibb.co/Twn0qpG/2151004003.jpg)'}}>
+        <div className='bg-fixed bg-no-repeat bg-cover rounded-lg py-16' style={{backgroundImage: 'url(https://i.ibb.co/Twn0qpG/2151004003.jpg)'}}>
             <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
                 <SwiperSlide><div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md dark:divide-gray-300 dark:bg-gray-50 dark:text-gray-800 text-white bg-slate-900 bg-opacity-50">
                 <div className="flex justify-between p-4">

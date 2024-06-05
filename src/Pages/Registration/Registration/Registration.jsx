@@ -5,6 +5,7 @@ import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
 import { AuthContext } from "../../../Context/AuthProvider";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Registration = () => {
 
@@ -83,6 +84,9 @@ const Registration = () => {
 
     return (
         <div className="container mx-auto">
+            <Helmet>
+                <title>DR-Estate | Registration</title>
+            </Helmet>
             <div className="bg-slate-600">
                 <div className="hero-overlay rounded-lg"></div>
                 <div className="hero-content text-center text-black">

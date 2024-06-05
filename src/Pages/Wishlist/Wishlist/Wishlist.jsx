@@ -1,7 +1,11 @@
+import { Helmet } from "react-helmet-async";
 
 const Wishlist = () => {
     return (
         <div>
+            <Helmet>
+                <title>DR-Estate | Wishlist</title>
+            </Helmet>
             <div className="container p-2 mx-auto sm:p-4 dark:text-gray-800">
             <h2 className="text-2xl font-semibold leading-tight text-center mb-10">Wishlist</h2>
                 <div className="overflow-x-auto">
