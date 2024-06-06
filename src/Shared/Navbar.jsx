@@ -29,7 +29,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="flex">
-                        <img className="w-10" src="https://i.ibb.co/MGRkxpG/Logo-removebg.png" alt="" />
+                        <img className="w-20" src="https://i.ibb.co/YXsq6Mj/Untitled-1.png" alt="" />
                         <h1 className="btn btn-ghost text-xl font-serif">Dreams Real Estate</h1>
                     </div>
                 </div>

@@ -1,8 +1,73 @@
-# React + Vite
+● Property image.
+● Property title.
+● Property location.
+● Property description.
+● Agent name.
+● Agent image.
+● Price range.
+● Agent name.
+● Agent image.
+● Verification status.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+● Property Details button.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+● Agent name.
+● Agent image.
+● verification status.
+
+● Make an offer button.
+● remove button.
+● remove button.
+
+
+● Agent name (readonly).
+● Offered amount. (User can not add an amount which is not in range of the price which was
+specified by the agent of that property)
+● buyer email(readonly)
+● buyer name (readonly)
+● buying date.
+● offer button
+
+
+
+● Agent name
+● offered amount.
+● status
+
+● agent name
+● review time
+● review description
+● delete button.
+
+
+● Agent name (readonly). (Agent name will be the current logged in user’s displayName)
+● Agent email(readonly). (Agent email will be the current logged in user’s email)
+
+● Add property button.
+
+
+● Agent name (readonly). (Agent name will be the current logged in user’s displayName)
+● Agent email(readonly). (Agent email will be the current logged in user’s email)
+
+● Add property button.
+
+
+● buyer email
+● buyer name
+● sold price.
+
+
+● buyer email
+● buyer name
+● sold price.
+
+
+● buyer email
+● buyer name
+● sold price.
+
+
+
+
