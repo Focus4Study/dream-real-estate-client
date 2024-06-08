@@ -1,20 +1,19 @@
 import { useEffect, useState } from "react";
 
-
-const useProperties = () => {
-    const [properties, setProperties] = useState([])
+const useReviews = () => {
+    const [reviews, setReviews] = useState([])
     const [loading, setLoading]= useState(true)
     useEffect(()=>{
-        fetch('http://localhost:5000/property',{
+        fetch('http://localhost:5000/reviews',{
             method:'GET',
         })
             .then(res=> res.json())
             .then(data=>{
-                setProperties(data)
+                setReviews(data)
                 setLoading(false)
             })    
     },[])
-    return[properties, loading]
+    return[reviews, loading]
 };
 
-export default useProperties;
+export default useReviews;

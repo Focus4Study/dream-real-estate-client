@@ -56,7 +56,7 @@ const AuthProvider = ({children}) => {
         // const userEmail = currentUser?.email|| user?.email
           console.log('current user', currentUser);  
           setUser(currentUser)
-        //   setLoading(false)
+          setLoading(false)
         //   if(currentUser){
         //     const loggedUser = {email: userEmail}
         //     axios.post('https://y-eta-nine.vercel.app/jwt',loggedUser, {withCredential: true})
@@ -67,7 +67,7 @@ const AuthProvider = ({children}) => {
         }
     )
         return()=>{unSubscribe()}
-    },[user?.email])
+    },[])
 
     const authInfo = {
         user,

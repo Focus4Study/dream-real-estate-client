@@ -13,11 +13,14 @@ import DashboardLayout from "../Layout/DashboardLayout";
 import ProfilePage from "../Pages/ProfilePage/ProfilePage/ProfilePage";
 import Login from "../Pages/Login/Login/Login";
 import Registration from "../Pages/Registration/Registration/Registration";
+import ErrorPage from "../Shared/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -25,11 +28,12 @@ export const router = createBrowserRouter([
       },
       {
         path: "/all-properties",
-        element: <AllProperties></AllProperties>
+        element: <PrivateRoute><AllProperties></AllProperties></PrivateRoute>
       },
       {
-        path: "/details-page",
-        element: <DetailsPage></DetailsPage>
+        path: "/property/details/:id",
+        element: <PrivateRoute><DetailsPage></DetailsPage></PrivateRoute>
+        
       },
       {
         path: "/login",
@@ -45,27 +49,28 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout></DashboardLayout>,
+    element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "/dashboard",
-        element: <Dashboard></Dashboard>
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
       },
       {
         path: "/dashboard/wishlist",
-        element: <Wishlist></Wishlist>
+        element:<PrivateRoute><Wishlist></Wishlist></PrivateRoute>
       },
       {
         path: "/dashboard/property-bought",
-        element: <PropertyBought></PropertyBought>
+        element: <PrivateRoute><PropertyBought></PropertyBought></PrivateRoute>
       },
       {
         path: "/dashboard/my-reviews",
-        element: <Reviews></Reviews>
+        element: <PrivateRoute><Reviews></Reviews></PrivateRoute>
       },
       {
         path: "/dashboard/profile",
-        element: <ProfilePage></ProfilePage>
+        element: <PrivateRoute><ProfilePage></ProfilePage></PrivateRoute>
       },
     ]
   },

@@ -4,7 +4,7 @@ import { Carousel } from 'react-responsive-carousel';
 const Banner = () => {
     return (
         <div>
-            <Carousel className="text-center mb-52">
+            <Carousel className="text-center mb-52 h-2/3">
                 <div>
                     <img className="max-h-[600px]" src="https://i.ibb.co/J7rrQ8r/2151004063.jpg" />
                 </div>
