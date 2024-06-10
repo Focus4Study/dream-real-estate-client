@@ -5,13 +5,13 @@ import { AuthContext } from "../Context/AuthProvider";
 
 const Navbar = () => {
 
-    const { user, signOut } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
 
     const links = <>
         <Link to={'/'}><li className="btn-ghost text-xs px-4 py-2 uppercase">Home</li></Link>
         <Link to={'/all-properties'}><li className="btn-ghost text-xs px-4 py-2 uppercase">All properties</li></Link>
         <Link to={'/dashboard'}><li className="btn-ghost text-xs px-4 py-2 uppercase">Dashboard</li></Link>
-        {/* Todo these route should be private */}
+        <Link to={'/add-property'}><li className="btn-ghost text-xs px-4 py-2 uppercase">Add Property</li></Link>
     </>
 
     return (
@@ -41,7 +41,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 {user ?
-                    <div onClick={()=>signOut()} className="navbar-end">
+                    <div onClick={()=>logOut()} className="navbar-end">
                         <button className="btn btn-error">Logout</button>
                     </div>
                     :

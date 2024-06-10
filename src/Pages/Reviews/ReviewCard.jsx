@@ -1,24 +1,22 @@
 
 
+const ReviewCard = ({review, handleDeleteReview}) => {
 
-const ReviewCard = () => {
-
-
-
+    const {_id} = review
 
     return (
         <div>
             <div className="flex items-center gap-10 max-h-80 px-5">
                 <div>
-                    <img className="h-56 rounded-lg" src="https://i.ibb.co/k13p24h/Luxury-Beachfront-Hotel.jpg" alt="" />
+                    <img className="h-56 rounded-lg" src={review?.userImg} alt="" />
                 </div>
-                <div className="flex-1 space-y-5 p-10">
-                    <h2 className="text-4xl font-semibold text-center mb-5"></h2>
-                    <h2 className="text-xl font-semibold text-center">Agent name</h2>
-                    <p>Comented on: review time</p>
-                    <p>review description Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat ab dolorem itaque vitae minus ad deserunt voluptatum, delectus tenetur fugit illo sed aliquid expedita laboriosam inventore rerum id quos? Recusandae!</p>
+                <div className="flex-1 space-y-3 p-10">
+                    <h2 className="text-4xl font-semibold text-center mb-2">{review?.propertyTitle}</h2>
+                    <h2 className="text-xl font-semibold">{review?.agentName}</h2>
+                    <p>Comented on: {review?.reviewTime}</p>
+                    <p>{review?.reviewDescription}</p>
                 </div>
-                <button className="btn btn-ghost">Delete</button>
+                <button onClick={()=>handleDeleteReview(_id)} className="btn btn-ghost">Delete</button>
             </div>
         </div>
     );

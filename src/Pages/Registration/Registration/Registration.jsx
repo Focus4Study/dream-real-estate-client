@@ -4,12 +4,15 @@ import { useForm } from "react-hook-form";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
 import { AuthContext } from "../../../Context/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 
 const Registration = () => {
 
-    const { createUser, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
+    const { createUser, signInWithGoogle, signInWithGithub, updateUserProfile } = useContext(AuthContext);
+    const navigate = useNavigate()
+    const axiosPublic = useAxiosPublic()
 
     const [passwordEye, setPasswordEye] = useState(false)
     const showPassword = () => {
@@ -18,14 +21,24 @@ const Registration = () => {
     const handleSocialLogin = socialProvider => {
         socialProvider()
             .then(result => {
-                if (result.user) {
-                    Swal.fire({
-                        title: 'Success',
-                        text: 'You have successfully logged in',
-                        icon: 'success',
-                        confirmButtonText: 'Continue'
-                    })
+                const userInfo = {
+                    email: result.user?.email,
+                    name: result.user?.displayName,
+                    photoURL: result.user?.photoURL
                 }
+                axiosPublic.post('/users', userInfo)
+                            .then(res => {
+                                if (res.data) {
+                                    console.log('user added');
+                                    Swal.fire({
+                                        title: 'Success',
+                                        text: 'You have successfully registered',
+                                        icon: 'success',
+                                        confirmButtonText: 'Continue'
+                                    })
+                                }
+                            })
+                            navigate('/')
             })
             .catch(
                 error => {
@@ -54,18 +67,35 @@ const Registration = () => {
         const { name } = data;
         const { email } = data;
         const { password } = data;
+        const { photoURL } = data;
         reset()
 
         createUser(email, password, name)
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                Swal.fire({
-                    title: 'Success',
-                    text: 'You have successfully registered',
-                    icon: 'success',
-                    confirmButtonText: 'Continue'
-                })
+                updateUserProfile(name, photoURL)
+                    .then(() => {
+                        const userInfo = {
+                            name: name,
+                            email: email,
+                            photoURL: photoURL
+                        }
+                        axiosPublic.post('/users', userInfo)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    console.log('user added');
+                                    Swal.fire({
+                                        title: 'Success',
+                                        text: 'You have successfully registered',
+                                        icon: 'success',
+                                        confirmButtonText: 'Continue'
+                                    })
+                                }
+                            })
+                            navigate('/')
+                    })
+
             })
             .catch(
                 error => {
@@ -96,11 +126,15 @@ const Registration = () => {
                             <form noValidate="" onSubmit={handleSubmit(onSubmit)} action="" className="space-y-8 -w-1/2 mx-auto">
                                 <div className="space-y-4">
                                     <div className="space-y-2">
-                                        <label htmlFor="Name" className="block text-sm text-start">Name</label>
+                                        <label htmlFor="Name" required className="block text-sm text-start">Name</label>
                                         <input type="text" name="name" id="name" placeholder="Your Name Here" className="w-full px-3 py-2 text-black border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" {...register("name", { required: true })} />
                                     </div>
                                     <div className="space-y-2">
-                                        <label htmlFor="email" className="block text-sm text-start">Email address</label>
+                                        <label htmlFor="photoURL" required className="block text-sm text-start">Photo URL</label>
+                                        <input type="text" name="photoURL" id="photoURL" placeholder="Your Name Here" className="w-full px-3 py-2 text-black border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" {...register("photoURL", { required: true })} />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label htmlFor="email" required className="block text-sm text-start">Email address</label>
                                         <input type="email" name="email" id="email" placeholder="Your@email.com" className="w-full text-black px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" {...register("email", { required: true })} />
                                     </div>
                                     <div className="space-y-2 relative">
@@ -119,7 +153,7 @@ const Registration = () => {
                                                     message: 'Password must be at least 6 characters long'
                                                 }
                                             })} required />
-                                        {errors.password && <span className="text-red-600 max-w-52 text-wrap font-bold">{errors.password.message}</span>}
+                                        {errors.password && <p className="text-red-600 font-bold max-w-96 text-wrap mx-auto">{errors.password.message}</p>}
                                         <div className="absolute right-3 top-7">
                                             {
                                                 (passwordEye === false) ? <IoEyeOff className="text-2xl text-black" onClick={showPassword} /> : <IoEye className="text-2xl text-black" onClick={showPassword} />
@@ -154,7 +188,7 @@ const Registration = () => {
 
 
                             <p className="text-sm text-center dark:text-gray-600">Already have an account?
-                               <Link to={'/login'}><p href="#" rel="noopener noreferrer" className="focus:underline hover:underline">Login here</p></Link>
+                                <Link to={'/login'}><span href="#" rel="noopener noreferrer" className="focus:underline hover:underline">Login here</span></Link>
                             </p>
 
                         </div>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+
 const useReviews = () => {
     const [reviews, setReviews] = useState([])
     const [loading, setLoading]= useState(true)
@@ -14,6 +15,7 @@ const useReviews = () => {
             })    
     },[])
     return[reviews, loading]
+
 };
 
 export default useReviews;

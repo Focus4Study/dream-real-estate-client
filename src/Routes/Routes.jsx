@@ -15,6 +15,7 @@ import Login from "../Pages/Login/Login/Login";
 import Registration from "../Pages/Registration/Registration/Registration";
 import ErrorPage from "../Shared/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
+import AddProperty from "../Pages/AddUpdateProperty/AddProperty/AddProperty";
 
 export const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         element: <Registration></Registration>
+      },
+      {
+        path: "/add-property",
+        element: <AddProperty></AddProperty>
       },
 
 

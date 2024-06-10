@@ -5,6 +5,7 @@ import { IoEye, IoEyeOff } from "react-icons/io5";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../Context/AuthProvider";
 import { Helmet } from "react-helmet-async";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 
 
 const Login = () => {
@@ -12,6 +13,7 @@ const Login = () => {
     const { signIn, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
     const navigate = useNavigate()
     const location = useLocation()
+    const axiosPublic = useAxiosPublic()
     const from = location?.state?.from?.pathname || '/'
 
     const [passwordEye, setPasswordEye] = useState(false)
@@ -62,18 +64,39 @@ const Login = () => {
     }
     const handleSocialLogin = socialProvider => {
         socialProvider()
-            .then(result => {
-                if (result.user) {
-                    navigate(from, {replace:true})
+        .then(result => {
+            const userInfo = {
+                email: result.user?.email,
+                name: result.user?.displayName,
+                photoURL: result.user?.photoURL
+            }
+            axiosPublic.post('/users', userInfo)
+                        .then(res => {
+                            if (res.data) {
+                                console.log('user added');
+                                Swal.fire({
+                                    title: 'Success',
+                                    text: 'You have successfully registered',
+                                    icon: 'success',
+                                    confirmButtonText: 'Continue'
+                                })
+                            }
+                        })
+                        navigate('/')
+        })
+        .catch(
+            error => {
+                console.log(error),
                     Swal.fire({
-                        title: 'Success',
-                        text: 'You have successfully logged in',
-                        icon: 'success',
-                        confirmButtonText: 'Continue'
+                        title: 'Error',
+                        text: 'Sorry something went wrong',
+                        icon: 'error',
+                        confirmButtonText: 'Close'
                     })
-                }
-            })
-    }
+            }
+
+        )
+}
 
 
     return (
@@ -84,10 +107,10 @@ const Login = () => {
             <div className="hero min-h-screen -mt-10 ml-40 w-1/2">
                 <div className="hero-content text-center text-neutral-content">
                     <div className="text-black">
-                        <div className=" p-4 rounded-md sm:p-8 dark:bg-gray-50 dark:text-gray-800 bg-emerald-400 bg-opacity-80">
+                        <div className="w-full p-4 rounded-md sm:p-8 dark:bg-gray-50 dark:text-gray-800 bg-emerald-400 bg-opacity-80">
                             <h2 className="text-3xl font-semibold text-center px-16">Login to your account</h2>
                             <br />
-                            <form onSubmit={handleSubmit(onSubmit)} noValidate="" action="" className="space-y-4">
+                            <form onSubmit={handleSubmit(onSubmit)} noValidate="" action="" className="space-y-4 --w-1/2 mx-auto">
                                 <div className="space-y-2">
                                     <div className="space-y-2">
                                         <label htmlFor="email" className="block text-black text-sm text-start">Email address</label>
@@ -97,7 +120,7 @@ const Login = () => {
                                         <div className="flex justify-between">
                                             <label htmlFor="password" className="text-sm text-black">Password</label>
                                         </div>
-                                        <input type="password" name="password" id="password" placeholder="*****" className="w-full text-black px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" {...register("password", {
+                                        <input type={(!passwordEye) ? 'password' : 'text'} name="password" id="password" placeholder="*****" className="w-full text-black px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" {...register("password", {
                                             required: true,
                                             pattern: {
                                                 value: /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*\d).{6,}$/,
@@ -108,7 +131,7 @@ const Login = () => {
                                                 message: 'Password must be at least 6 characters long'
                                             }
                                         })} required />
-                                        {errors.password && <span className="text-red-600 font-bold">{errors.password.message}</span>}
+                                        {errors.password && <p className="text-red-600 font-bold max-w-96 text-wrap mx-auto">{errors.password.message}</p>}
                                         <div className="absolute right-3 top-7">
                                             {
                                                 (passwordEye === false) ? <IoEyeOff className="text-2xl text-black" onClick={showPassword} /> : <IoEye className="text-2xl text-black" onClick={showPassword} />
@@ -143,9 +166,9 @@ const Login = () => {
 
 
 
-                            <p className="text-sm text-center dark:text-gray-600">Do not have account?
+                            <h4 className="text-sm text-center dark:text-gray-600">Do not have account?
                                 <Link to={'/register'}><p className="focus:underline hover:underline">Sign up here</p></Link>
-                            </p>
+                            </h4>
 
                         </div>
                     </div>

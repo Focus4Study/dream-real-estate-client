@@ -1,10 +1,8 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types';
-
-// import axios from "axios";
 import app from "../Firebase/firebaseconfig";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
-import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth/web-extension";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+
 
 
 
@@ -51,19 +49,19 @@ const AuthProvider = ({children}) => {
         return signInWithPopup(auth, githubAuthProvider)
     }
 
+    const updateUserProfile =(name, photo)=>{
+         return updateProfile(auth.currentUser,{
+            displayName:name,
+            photoURL:photo
+        })
+    }
+
     useEffect(()=>{
         const unSubscribe = onAuthStateChanged(auth, currentUser=>{
-        // const userEmail = currentUser?.email|| user?.email
           console.log('current user', currentUser);  
           setUser(currentUser)
           setLoading(false)
-        //   if(currentUser){
-        //     const loggedUser = {email: userEmail}
-        //     axios.post('https://y-eta-nine.vercel.app/jwt',loggedUser, {withCredential: true})
-        //     .then(res=>{
-        //         console.log(res.data);
-        //     })
-        //   }
+      
         }
     )
         return()=>{unSubscribe()}
@@ -78,7 +76,8 @@ const AuthProvider = ({children}) => {
         signInWithGoogle,
         signInWithGithub,
         updateUserInfo,
-        setLoading
+        setLoading,
+        updateUserProfile,
     }
 
 
