@@ -1,14 +1,14 @@
 import { Helmet } from "react-helmet-async";
-import ReviewCard from "../ReviewCard";
-import useMyReviews from "../../../Hooks/useMyReviews";
 import Swal from "sweetalert2";
+import useReviews from "../../../Hooks/useReviews";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import ReviewCard from "../../Reviews/ReviewCard";
 
 
-const Reviews = () => {
+const ManageReviews = () => {
+
+    const [refetch, reviews] = useReviews()
     const axiosSecure = useAxiosSecure()
-    const [refetch, myReviews] = useMyReviews()
-    console.log(myReviews);
 
     const handleDeleteReview = id => {
         Swal.fire({
@@ -20,13 +20,12 @@ const Reviews = () => {
             .then((result) => {
                 if (result.isConfirmed) {
                     axiosSecure.delete(`reviews/${id}`)
-                        // .then(res => res.json())
                         .then(data => {
                             console.log(data);
                             if (data.data.deletedCount > 0) {
                                 Swal.fire({
                                     title: 'Deleted',
-                                    text: 'You have deleted your review',
+                                    text: 'You have deleted a review',
                                     icon: 'info',
                                     confirmButtonText: 'Ok'
                                 })
@@ -39,17 +38,17 @@ const Reviews = () => {
                 }
             })
     }
-
     return (
-        <div className="pt-5">
-            <Helmet>
-                <title>DR-Estate | Reviews</title>
-            </Helmet>
-            {
-                myReviews?.map(review => <ReviewCard key={review._id} review={review} handleDeleteReview={handleDeleteReview}></ReviewCard>)
-            }
-        </div>
+        
+            <div className="pt-5">
+                <Helmet>
+                    <title>DR-Estate | Manage-Reviews</title>
+                </Helmet>
+                {
+                    reviews?.map(review => <ReviewCard key={review._id} review={review} handleDeleteReview={handleDeleteReview}></ReviewCard>)
+                }
+            </div>
     );
 };
 
-export default Reviews;
+export default ManageReviews;

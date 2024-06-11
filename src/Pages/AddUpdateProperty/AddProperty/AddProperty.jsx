@@ -26,7 +26,7 @@ const AddProperty = () => {
         const agent_name = user?.name
         const agent_image = user?.photoURL
         const email = user?.email
-        const verification_status = false
+        const verification_status = 'Unverified'
 
 
         const property = {

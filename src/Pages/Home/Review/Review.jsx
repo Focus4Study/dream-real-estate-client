@@ -8,7 +8,7 @@ import useReviews from '../../../Hooks/useReviews';
 const Review = () => {
 
 
-    const [reviews] = useReviews()
+    const [,reviews] = useReviews()
 
     const parseDate = (dateStr) => {
         const [day, month, year] = dateStr.split('-');

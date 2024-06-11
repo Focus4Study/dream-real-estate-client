@@ -1,20 +1,20 @@
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "./useAxiosSecure";
 
 
 const useProperties = () => {
-    const [properties, setProperties] = useState([])
-    const [loading, setLoading]= useState(true)
-    useEffect(()=>{
-        fetch('http://localhost:5000/property',{
-            method:'GET',
-        })
-            .then(res=> res.json())
-            .then(data=>{
-                setProperties(data)
-                setLoading(false)
-            })    
-    },[])
-    return[properties, loading]
+
+    const axiosSecure = useAxiosSecure()
+    const {refetch, data: properties=[]} = useQuery({
+        queryKey: ['property'],
+        queryFn: async ()=>{
+            const res = await axiosSecure.get(`/property`)
+            return res.data
+        }
+    })
+    return [refetch, properties]
 };
 
 export default useProperties;
+
+

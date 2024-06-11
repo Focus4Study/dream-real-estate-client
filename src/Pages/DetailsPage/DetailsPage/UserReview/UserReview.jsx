@@ -9,7 +9,7 @@ const UserReview = ({review}) => {
                         </div>
                         <div>
                             <h4 className="font-bold">{review.reviewerName}</h4>
-                            <span className="text-xs dark:text-gray-600">{review.reviewTime}</span>
+                            <span className="text-xs dark:text-gray-600">{review.reviewTime.slice(0,10)}</span>
                         </div>
                     </div>
                 </div>

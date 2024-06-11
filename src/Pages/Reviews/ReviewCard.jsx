@@ -18,6 +18,7 @@ const ReviewCard = ({review, handleDeleteReview}) => {
                 </div>
                 <button onClick={()=>handleDeleteReview(_id)} className="btn btn-ghost">Delete</button>
             </div>
+            <div className="divider"></div>
         </div>
     );
 };

@@ -16,10 +16,8 @@ const WishRow = ({ wishProperty, handleDelete }) => {
 
     return (
         <tr>
-            <td className="px-3 w-32 text-xl font-medium dark:text-gray-600 text-center py-4">
-                <img className="rounded-lg w-28" src={property_image} alt="" />
-            </td>
-            <td className="px-3 py-2 text-center">
+            <td className="px-3 w-32 font-medium dark:text-gray-600 text-center py-4">
+                <img className="rounded-lg w-28 mx-auto my-5" src={property_image} alt="" />
                 <p>{property_title}</p>
             </td>
             <td className="px-3 py-2">
@@ -39,7 +37,7 @@ const WishRow = ({ wishProperty, handleDelete }) => {
             </td>
             <td className="px-3 py-2 text-center">
                 <button title="Open details" className="btn dark:text-gray-400 hover:dark:bg-gray-300 focus:dark:bg-gray-300">
-                    Make an offer
+                    Offer
                 </button>
             </td>
             <td className="px-3 py-2 text-center">

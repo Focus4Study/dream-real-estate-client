@@ -4,9 +4,13 @@ import DashboardNavbar from "../Pages/Dashboard/DashboardNavbar/DashboardNavbar"
 
 const DashboardLayout = () => {
     return (
-        <div className="flex items-start">
-            <DashboardNavbar></DashboardNavbar>
+        <div className="flex">
+            <div className="justify-start">
+                <DashboardNavbar></DashboardNavbar>
+            </div>
+            <div className="flex-grow">
             <Outlet></Outlet>
+            </div>
         </div>
     );
 };

@@ -18,6 +18,8 @@ import PrivateRoute from "./PrivateRoute";
 import AddProperty from "../Pages/AddUpdateProperty/AddProperty/AddProperty";
 import PropertyTable from "../Pages/UtilizePropertyPages/PropertyTable/PropertyTable";
 import ManageUsers from "../Pages/ManageUsers/ManageUsers/ManageUsers";
+import ManageReviews from "../Pages/ManageReviews/ManageReviews/ManageReviews";
+import ManageProperty from "../Pages/ManageProperty/ManageProperty/ManageProperty";
 
 export const router = createBrowserRouter([
   {
@@ -87,6 +89,14 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/manageUsers",
         element: <ManageUsers></ManageUsers>
+      },
+      {
+        path: "/dashboard/manageReviews",
+        element: <ManageReviews></ManageReviews>
+      },
+      {
+        path: "/dashboard/manageProperties",
+        element: <ManageProperty></ManageProperty>
       },
       
     ]

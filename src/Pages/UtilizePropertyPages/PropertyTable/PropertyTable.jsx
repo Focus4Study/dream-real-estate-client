@@ -45,10 +45,10 @@ const PropertyTable = () => {
             <Helmet>
                 <title>DR-Estate | Added Properties</title>
             </Helmet>
-            <div className="container p-2 mx-auto sm:p-4 dark:text-gray-800">
+            <div className="p-2 mx-auto sm:p-4 dark:text-gray-800">
                 <h2 className="text-2xl font-semibold leading-tight text-center mb-10">My Added Properties</h2>
                 <div className="overflow-x-auto">
-                    <table className="w-full p-6 text-xs text-left whitespace-nowrap">
+                    <table className="w-full p-6 text-xs text-left whitespace-nowrap tabs-boxed table-zebra-zebra">
                         <colgroup>
                             <col className="w-5" />
                             <col />
@@ -58,10 +58,9 @@ const PropertyTable = () => {
                             <col />
                             <col className="w-5" />
                         </colgroup>
-                        <thead>
+                        <thead className="bg-red-300">
                             <tr className="dark:bg-gray-300 text-center">
                                 <th className="p-3">Property</th>
-                                <th className="p-3">Property Name</th>
                                 <th className="p-3">Property Location</th>
                                 <th className="p-3">Agent</th>
                                 <th className="p-3">Verification Status</th>
@@ -72,9 +71,8 @@ const PropertyTable = () => {
                         </thead>
                         <tbody className="border-b dark:bg-gray-50 dark:border-gray-300">
                             {
-                                myProperties.map(myProperty => <PropertyRow key={myProperty._id} myProperty={myProperty} handleDelete={handleDelete}></PropertyRow>)
+                                myProperties.map(property => <PropertyRow key={property._id} property={property} handleDelete={handleDelete}></PropertyRow>)
                             }
-
                         </tbody>
                     </table>
                 </div>

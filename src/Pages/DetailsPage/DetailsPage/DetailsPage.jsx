@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import UserReview from "./UserReview/UserReview";
 import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const DetailsPage = () => {
@@ -22,7 +23,7 @@ const DetailsPage = () => {
         })
             .then(res => res.json())
             .then(data => {
-                setProperty(data);
+                setProperty(data)
             })
     }, [id])
 
@@ -102,8 +103,8 @@ const DetailsPage = () => {
             const review = {
                 property_title,
                 propertyId: _id,
-                reviewerName: user?.name,
-                userImg: user?.userImg,
+                reviewerName: user?.displayName,
+                userImg: user?.photoURL,
                 userEmail: user?.email,
                 reviewTime: currentTime,
                 agentName: agent_name,
@@ -169,7 +170,7 @@ const DetailsPage = () => {
                     <div className="modal-box">
                         <h2>ADD REVIEW</h2>
                         <form method="dialog" onSubmit={(e) => handleReviewPost(e)} className="flex flex-col justify-center w-full">
-                            <textarea className="textarea textarea-info w-full"  name="review" placeholder="Bio"></textarea>
+                            <textarea className="textarea textarea-info w-full" name="review" placeholder="Bio"></textarea>
                             <div className="flex justify-end p-2">
                                 <div>
                                     <input className="btn btn-primary" type="submit" value="submit" />
@@ -179,7 +180,7 @@ const DetailsPage = () => {
                     </div>
                     <label className="modal-backdrop" htmlFor="my_modal_7">Close</label>
                 </div>
-            </div>
+            </div >
             <div className="divider"></div>
             <div>
                 {
@@ -187,7 +188,7 @@ const DetailsPage = () => {
                 }
             </div>
 
-        </div>
+        </div >
     );
 };
 

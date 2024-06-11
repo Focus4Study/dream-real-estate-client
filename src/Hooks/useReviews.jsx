@@ -1,20 +1,20 @@
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "./useAxiosSecure";
 
 
 const useReviews = () => {
-    const [reviews, setReviews] = useState([])
-    const [loading, setLoading]= useState(true)
-    useEffect(()=>{
-        fetch('http://localhost:5000/reviews',{
-            method:'GET',
-        })
-            .then(res=> res.json())
-            .then(data=>{
-                setReviews(data)
-                setLoading(false)
-            })    
-    },[])
-    return[reviews, loading]
+
+    const axiosSecure = useAxiosSecure()
+
+
+    const {refetch, data: reviews=[]} = useQuery({
+        queryKey: ['reviews'],
+        queryFn: async ()=>{
+            const res = await axiosSecure.get(`/reviews`)
+            return res.data
+        }
+    })
+    return [refetch,reviews]
 
 };
 

@@ -1,13 +1,13 @@
-import useProperties from "../../../Hooks/useProperties";
+import useVerifiedProperties from "../../../Hooks/useVerifiedProperties";
 import PropertyCard from "../PropertyCard/PropertyCard";
 
 
 const AllProperties = () => {
-    const [properties] = useProperties()
+    const [,verifiedProperties] = useVerifiedProperties()
     return (
         <div className="pt-28 grid grid-cols-3 gap-10">
             {
-                properties.map(property=><PropertyCard key={property._id} property={property}></PropertyCard>)
+                verifiedProperties.map(property=><PropertyCard key={property._id} property={property}></PropertyCard>)
             }
         </div>
     );

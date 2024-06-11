@@ -7,8 +7,9 @@ import { useState } from 'react';
 import useProperties from '../../../Hooks/useProperties';
 const AdvertisementSection = () => {
     const [swiperRef, setSwiperRef] = useState(null);
-    const [properties] = useProperties()
+    const [,properties] = useProperties()
     const adProperties = properties.slice(0,6)
+
     return (
         <div>
             <Swiper
@@ -44,7 +45,12 @@ const AdvertisementSection = () => {
                         </SwiperSlide>)
                 }
             </Swiper>
-
+                {
+                    swiperRef?
+                    <></>
+                    :
+                    <></>
+                }
         </div>
     );
 };
