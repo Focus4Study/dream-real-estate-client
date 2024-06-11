@@ -1,3 +1,4 @@
+import { FaUserAlt } from "react-icons/fa";
 const PropertyRow = ({ myProperty, handleDelete }) => {
     const {
         _id,
@@ -27,9 +28,20 @@ const PropertyRow = ({ myProperty, handleDelete }) => {
                 </div>
             </td>
 
-            <td className="px-3 py-2 items-center gap-3">
-                <img className="rounded-full h-14 w-14 mx-auto" src={agent_image} alt="" />
-                <p className="dark:text-gray-600 text-center">{agent_name}</p>
+            <td className="px-3 py-2 items-center mx-auto">
+                {
+                    agent_image?
+                    <img className="rounded-full h-14 w-14 mx-auto" src={agent_image} alt="" />
+                    :
+                    <FaUserAlt className="h-10 w-10"/>
+                }
+                {
+                    agent_name?
+                    <p className="dark:text-gray-600 text-center">{agent_name}</p>
+                    :
+                    <p>No Name</p>
+                }
+                
             </td>
 
             <td className="px-3 py-2 text-center">

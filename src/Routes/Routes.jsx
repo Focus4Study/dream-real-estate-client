@@ -17,6 +17,7 @@ import ErrorPage from "../Shared/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import AddProperty from "../Pages/AddUpdateProperty/AddProperty/AddProperty";
 import PropertyTable from "../Pages/UtilizePropertyPages/PropertyTable/PropertyTable";
+import ManageUsers from "../Pages/ManageUsers/ManageUsers/ManageUsers";
 
 export const router = createBrowserRouter([
   {
@@ -82,6 +83,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/my-added-property",
         element: <PropertyTable></PropertyTable>
+      },
+      {
+        path: "/dashboard/manageUsers",
+        element: <ManageUsers></ManageUsers>
       },
       
     ]

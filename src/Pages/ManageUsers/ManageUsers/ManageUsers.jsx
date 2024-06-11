@@ -1,15 +1,15 @@
-import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-import useMyProperties from "../../../Hooks/useMyProperties";
-import PropertyRow from "../PropertyRow/PropertyRow";
-// import { useState } from "react";
+import { Helmet } from "react-helmet-async";
+import ManageUsersRow from "../ManageUsersRow/ManageUsersRow";
+import useUsersList from "../../../Hooks/useUsersList";
 
-const PropertyTable = () => {
+
+const ManageUsers = () => {
+
     const axiosSecure = useAxiosSecure()
-    const [refetch, myProperties] = useMyProperties()
-    // const [wishlistState, setWishlistState] = useState()
-    console.log(myProperties);
+    const [refetch, users] = useUsersList()
+    console.log(users);
     const handleDelete = id => {
 
         Swal.fire({
@@ -20,7 +20,7 @@ const PropertyTable = () => {
         })
             .then((result) => {
                 if (result.isConfirmed) {
-                    axiosSecure.delete(`property/${id}`)
+                    axiosSecure.delete(`users/${id}`)
                         .then(data => {
                             console.log(data);
                             if (data.data.deletedCount > 0) {
@@ -43,10 +43,10 @@ const PropertyTable = () => {
     return (
         <div>
             <Helmet>
-                <title>DR-Estate | Added Properties</title>
+                <title>DR-Estate | Wishlist</title>
             </Helmet>
             <div className="container p-2 mx-auto sm:p-4 dark:text-gray-800">
-                <h2 className="text-2xl font-semibold leading-tight text-center mb-10">My Added Properties</h2>
+                <h2 className="text-2xl font-semibold leading-tight text-center mb-10">Manage Users</h2>
                 <div className="overflow-x-auto">
                     <table className="w-full p-6 text-xs text-left whitespace-nowrap">
                         <colgroup>
@@ -60,19 +60,19 @@ const PropertyTable = () => {
                         </colgroup>
                         <thead>
                             <tr className="dark:bg-gray-300 text-center">
-                                <th className="p-3">Property</th>
-                                <th className="p-3">Property Name</th>
-                                <th className="p-3">Property Location</th>
-                                <th className="p-3">Agent</th>
-                                <th className="p-3">Verification Status</th>
-                                <th className="p-3">Price Range</th>
-                                <th className="p-3">Update</th>
-                                <th className="p-3">Remove</th>
+                                <th className="p-3">User Image</th>
+                                <th className="p-3">User Name</th>
+                                <th className="p-3">User Email</th>
+                                <th className="p-3">Make Admin</th>
+                                <th className="p-3">Make Agent</th>
+                                <th className="p-3">Mark as Fraud</th>
+                                <th className="p-3">Delete user</th>
+
                             </tr>
                         </thead>
                         <tbody className="border-b dark:bg-gray-50 dark:border-gray-300">
                             {
-                                myProperties.map(myProperty => <PropertyRow key={myProperty._id} myProperty={myProperty} handleDelete={handleDelete}></PropertyRow>)
+                                users.map(user => <ManageUsersRow key={user._id} user={user} handleDelete={handleDelete}></ManageUsersRow>)
                             }
 
                         </tbody>
@@ -83,4 +83,4 @@ const PropertyTable = () => {
     );
 };
 
-export default PropertyTable;
+export default ManageUsers;
