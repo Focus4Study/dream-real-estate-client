@@ -11,7 +11,6 @@ const Navbar = () => {
         <Link to={'/'}><li className="btn-ghost text-xs px-4 py-2 uppercase">Home</li></Link>
         <Link to={'/all-properties'}><li className="btn-ghost text-xs px-4 py-2 uppercase">All properties</li></Link>
         <Link to={'/dashboard'}><li className="btn-ghost text-xs px-4 py-2 uppercase">Dashboard</li></Link>
-        <Link to={'/add-property'}><li className="btn-ghost text-xs px-4 py-2 uppercase">Add Property</li></Link>
     </>
 
     return (

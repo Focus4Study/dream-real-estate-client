@@ -22,9 +22,12 @@ const AddProperty = () => {
         const { property_description } = data;
         const { min_price_range } = data;
         const { max_price_range } = data;
+        const { nation } = data;
         const agent_name = user?.name
         const agent_image = user?.photoURL
+        const email = user?.email
         const verification_status = false
+
 
         const property = {
             property_image,
@@ -35,6 +38,8 @@ const AddProperty = () => {
             max_price_range,
             agent_name,
             agent_image,
+            email,
+            nation,
             verification_status,
         }
         console.log(errors);
@@ -69,12 +74,12 @@ const AddProperty = () => {
 
 
     return (
-        <div style={{ backgroundImage: 'url(https://i.ibb.co/BnxdXf4/2151150977.jpg)' }} className="bg-no-repeat bg-cover bg-center ">
+        <div style={{ backgroundImage: 'url(https://i.ibb.co/BnxdXf4/2151150977.jpg)' }} className="bg-no-repeat bg-cover bg-center w-full">
             <div className="bg-black bg-cover bg-opacity-30 py-20">
 
                 <h1 className="text-4xl text-center text-amber-500 pt-5 font-serif italic">---- Add Property For Sale -----</h1>
                 <form onSubmit={handleSubmit(onSubmit)} className="container flex flex-col mx-auto space-y-12 mb-20">
-                    <div className="grid grid-cols-2 gap-10 mt-10">
+                    <div className="grid gap-10 mt-10 w-1/2 mx-auto">
 
                         <div>
                             <label htmlFor="property_image" className="text-xl font-semibold mr-5 text-white">Property Image Url</label>
@@ -82,7 +87,7 @@ const AddProperty = () => {
                                 id="property_image" type="text"
                                 placeholder="Image Url"
                                 {...register("property_image", { required: true })}
-                                className="input input-bordered w-full mt-3 input-ghost focus:bg-white focus:bg-opacity-60 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" />
+                                className="input input-bordered border-white w-full mt-3 input-ghost text-white focus:bg-white focus:bg-opacity-60 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" />
                         </div>
 
 
@@ -95,7 +100,7 @@ const AddProperty = () => {
                                 type="text"
                                 placeholder="Title"
                                 {...register("property_title", { required: true })}
-                                className="input input-ghost input-bordered w-full mt-3 focus:bg-white focus:bg-opacity-60 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" />
+                                className="input input-ghost input-bordered text-white border-white w-full mt-3 focus:bg-white focus:bg-opacity-60 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" />
                         </div>
 
                         <div>
@@ -106,7 +111,18 @@ const AddProperty = () => {
                                 type="text"
                                 placeholder="Property Location"
                                 {...register("property_location", { required: true })}
-                                className="input input-ghost input-bordered w-full mt-3 focus:bg-white focus:bg-opacity-60 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" />
+                                className="input input-ghost input-bordered text-white border-white w-full mt-3 focus:bg-white focus:bg-opacity-60 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" />
+                        </div>
+
+                        <div>
+                            <label htmlFor="nation"
+                                className="text-xl font-semibold mr-5 text-white">Property Nation</label>
+                            <input name="nation"
+                                id="nation"
+                                type="text"
+                                placeholder="Nation"
+                                {...register("nation", { required: true })}
+                                className="input input-ghost input-bordered text-white border-white w-full mt-3 focus:bg-white focus:bg-opacity-60 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" />
                         </div>
 
 
@@ -120,36 +136,34 @@ const AddProperty = () => {
                                 type="text"
                                 placeholder="Type a detailed description about the property"
                                 {...register("property_description", { required: true })}
-                                className="input input-ghost input-bordered mt-3 w-full  h-28 focus:bg-white focus:bg-opacity-60 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" ></textarea>
+                                className="input input-ghost input-bordered text-white border-white mt-3 w-full  h-28 focus:bg-white focus:bg-opacity-60 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" ></textarea>
                         </div>
 
                         <div>
                             <label htmlFor="Minimum Price" className="text-xl font-semibold mr-5 text-white">Minimum Price</label>
                             <input
-                                name="Minimum Price"
                                 id="min_price_range"
                                 type="number"
                                 placeholder="Minimum Price"
                                 min={'100'}
                                 {...register("min_price_range", { required: true })}
-                                className="input input-ghost input-bordered w-full mt-3 focus:bg-white focus:bg-opacity-60 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" />
+                                className="input input-ghost input-bordered text-white border-white w-full mt-3 focus:bg-white focus:bg-opacity-60 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" />
                         </div>
                         <div>
                             <label htmlFor="Maximum Price" className="text-xl font-semibold mr-5 text-white">Maximum Price</label>
                             <input
-                                name="Maximum Price"
                                 id="max_price_range"
                                 type="number"
                                 placeholder="Maximum Price"
-                                min={'100'}
-                                {...register("min_price_range", { required: true })}
-                                className="input input-ghost input-bordered w-full mt-3 focus:bg-white focus:bg-opacity-60  dark:text-gray-50 dark:border-gray-300" />
+                                min={'200'}
+                                {...register("max_price_range", { required: true })}
+                                className="input input-ghost input-bordered text-white border-white w-full mt-3 focus:bg-white focus:bg-opacity-60  dark:text-gray-50 dark:border-gray-300" />
                         </div>
 
 
 
                     </div>
-                    <input type="submit" className="btn bg-amber-600 border-amber-600 text-white font-bold" value="Submit" />
+                    <input type="submit" className="btn bg-amber-600 border-amber-600 text-white font-bold w-1/2 mx-auto" value="Submit" />
                     
                 </form>
             </div>

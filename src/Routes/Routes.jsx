@@ -16,6 +16,7 @@ import Registration from "../Pages/Registration/Registration/Registration";
 import ErrorPage from "../Shared/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import AddProperty from "../Pages/AddUpdateProperty/AddProperty/AddProperty";
+import PropertyTable from "../Pages/UtilizePropertyPages/PropertyTable/PropertyTable";
 
 export const router = createBrowserRouter([
   {
@@ -44,10 +45,7 @@ export const router = createBrowserRouter([
         path: "/register",
         element: <Registration></Registration>
       },
-      {
-        path: "/add-property",
-        element: <AddProperty></AddProperty>
-      },
+      
 
 
     ]
@@ -59,24 +57,33 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/dashboard",
-        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
+        element: <Dashboard></Dashboard>
       },
       {
         path: "/dashboard/wishlist",
-        element:<PrivateRoute><Wishlist></Wishlist></PrivateRoute>
+        element:<Wishlist></Wishlist>
       },
       {
         path: "/dashboard/property-bought",
-        element: <PrivateRoute><PropertyBought></PropertyBought></PrivateRoute>
+        element: <PropertyBought></PropertyBought>
       },
       {
         path: "/dashboard/my-reviews",
-        element: <PrivateRoute><Reviews></Reviews></PrivateRoute>
+        element: <Reviews></Reviews>
       },
       {
         path: "/dashboard/profile",
-        element: <PrivateRoute><ProfilePage></ProfilePage></PrivateRoute>
+        element: <ProfilePage></ProfilePage>
       },
+      {
+        path: "/dashboard/add-property",
+        element: <AddProperty></AddProperty>
+      },
+      {
+        path: "/dashboard/my-added-property",
+        element: <PropertyTable></PropertyTable>
+      },
+      
     ]
   },
 ]);

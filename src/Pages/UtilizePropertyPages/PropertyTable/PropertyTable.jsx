@@ -1,15 +1,15 @@
 import { Helmet } from "react-helmet-async";
-import useWishlist from "../../../Hooks/useWishlist";
-import WishRow from "../WishRow/WishRow";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import useMyProperties from "../../../Hooks/useMyProperties";
+import PropertyRow from "../PropertyRow/PropertyRow";
 // import { useState } from "react";
 
-const Wishlist = () => {
+const PropertyTable = () => {
     const axiosSecure = useAxiosSecure()
-    const [refetch, wishlist ] = useWishlist()
+    const [refetch, myProperties] = useMyProperties()
     // const [wishlistState, setWishlistState] = useState()
-
+    console.log(myProperties);
     const handleDelete = id => {
 
         Swal.fire({
@@ -20,8 +20,7 @@ const Wishlist = () => {
         })
             .then((result) => {
                 if (result.isConfirmed) {
-                    axiosSecure.delete(`wishlist/${id}`)
-                        // .then(res => res.json())
+                    axiosSecure.delete(`property/${id}`)
                         .then(data => {
                             console.log(data);
                             if (data.data.deletedCount > 0) {
@@ -47,7 +46,7 @@ const Wishlist = () => {
                 <title>DR-Estate | Wishlist</title>
             </Helmet>
             <div className="container p-2 mx-auto sm:p-4 dark:text-gray-800">
-                <h2 className="text-2xl font-semibold leading-tight text-center mb-10">Wishlist</h2>
+                <h2 className="text-2xl font-semibold leading-tight text-center mb-10">My Added Properties</h2>
                 <div className="overflow-x-auto">
                     <table className="w-full p-6 text-xs text-left whitespace-nowrap">
                         <colgroup>
@@ -67,16 +66,13 @@ const Wishlist = () => {
                                 <th className="p-3">Agent</th>
                                 <th className="p-3">Verification Status</th>
                                 <th className="p-3">Price Range</th>
-                                <th className="p-3">Make an Offer</th>
+                                <th className="p-3">Update</th>
                                 <th className="p-3">Remove</th>
-                                <th className="p-3">
-                                    <span className="sr-only">Edit</span>
-                                </th>
                             </tr>
                         </thead>
                         <tbody className="border-b dark:bg-gray-50 dark:border-gray-300">
                             {
-                                wishlist.map(wishProperty => <WishRow key={wishProperty._id} wishProperty={wishProperty} handleDelete={handleDelete}></WishRow>)
+                                myProperties.map(myProperty => <PropertyRow key={myProperty._id} myProperty={myProperty} handleDelete={handleDelete}></PropertyRow>)
                             }
 
                         </tbody>
@@ -87,4 +83,4 @@ const Wishlist = () => {
     );
 };
 
-export default Wishlist;
+export default PropertyTable;
