@@ -9,7 +9,6 @@ const ManageUsers = () => {
 
     const axiosSecure = useAxiosSecure()
     const [refetch, users] = useUsersList()
-    console.log(users);
     const handleDelete = id => {
 
         Swal.fire({

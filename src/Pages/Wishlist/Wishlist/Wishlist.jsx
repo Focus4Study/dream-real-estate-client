@@ -7,27 +7,27 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const Wishlist = () => {
     const axiosSecure = useAxiosSecure()
-    const [refetch, wishlist ] = useWishlist()
+    const [refetch, wishlist] = useWishlist()
     // const [wishlistState, setWishlistState] = useState()
 
-    const handleDelete = id => {
+    const handleDeleteWish = id => {
 
         Swal.fire({
             title: 'Confirm Delete',
-            text: 'Are you sure you would like to delete this item?',
+            text: 'Are you sure you would like to remove this property?',
             icon: 'error',
             confirmButtonText: 'Yes, I am'
         })
             .then((result) => {
                 if (result.isConfirmed) {
-                    axiosSecure.delete(`wishlist/${id}`)
+                    axiosSecure.delete(`/wishlist/${id}`)
                         // .then(res => res.json())
                         .then(data => {
                             console.log(data);
                             if (data.data.deletedCount > 0) {
                                 Swal.fire({
                                     title: 'Deleted',
-                                    text: 'You have deleted a blog',
+                                    text: 'You have removed an property from wishlist',
                                     icon: 'info',
                                     confirmButtonText: 'Ok'
                                 })
@@ -41,6 +41,10 @@ const Wishlist = () => {
             })
 
     }
+
+
+
+
     return (
         <div>
             <Helmet>
@@ -75,7 +79,7 @@ const Wishlist = () => {
                         </thead>
                         <tbody className="border-b dark:bg-gray-50 dark:border-gray-300">
                             {
-                                wishlist.map(wishProperty => <WishRow key={wishProperty._id} wishProperty={wishProperty} handleDelete={handleDelete}></WishRow>)
+                                wishlist.map(wishProperty => <WishRow key={wishProperty._id} wishProperty={wishProperty} handleDeleteWish={handleDeleteWish}></WishRow>)
                             }
 
                         </tbody>

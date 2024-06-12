@@ -1,6 +1,5 @@
 // import { FaUserAlt } from "react-icons/fa";
 const ManageUsersRow = ({ user, handleDelete, handleMakeAdmin, handleMakeAgent, handleMarkFraud }) => {
-    console.log(user);
     const { _id, name, email, photoURL } = user
     return (
 

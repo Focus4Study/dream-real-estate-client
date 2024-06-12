@@ -1,18 +1,23 @@
+import { Link } from "react-router-dom";
 
 
 
-const WishRow = ({ wishProperty, handleDelete }) => {
+
+const WishRow = ({ wishProperty, handleDeleteWish }) => {
     const {
         _id,
+        propertyId,
         property_image,
         property_title,
         property_location,
         agent_name,
         agent_image,
-        price_range,
+        min_price_range,
+        max_price_range,
         verification_status, } = wishProperty
 
-        
+
+
 
     return (
         <tr>
@@ -33,18 +38,19 @@ const WishRow = ({ wishProperty, handleDelete }) => {
                 <p>{verification_status}</p>
             </td>
             <td className="px-3 py-2 text-center">
-                <p>{price_range}</p>
+                <p>{min_price_range}-{max_price_range}</p>
             </td>
             <td className="px-3 py-2 text-center">
-                <button title="Open details" className="btn dark:text-gray-400 hover:dark:bg-gray-300 focus:dark:bg-gray-300">
-                    Offer
+                <Link to={`/dashboard/offer/${propertyId}`}>
+                    <button title="Open details" className="btn dark:text-gray-400 hover:dark:bg-gray-300 focus:dark:bg-gray-300">
+                        Offer
+                    </button></Link>
+            </td>
+            <td className="px-3 py-2 text-center">
+
+                <button onClick={() => handleDeleteWish(_id)} title="Open details" className="btn dark:text-gray-400 hover:dark:bg-gray-300 focus:dark:bg-gray-300">
+                    Remove
                 </button>
-            </td>
-            <td className="px-3 py-2 text-center">
-                
-                    <button onClick={() => handleDelete(_id)}  title="Open details" className="btn dark:text-gray-400 hover:dark:bg-gray-300 focus:dark:bg-gray-300">
-                        Remove
-                    </button>
 
             </td>
         </tr>

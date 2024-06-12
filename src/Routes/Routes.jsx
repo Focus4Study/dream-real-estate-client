@@ -11,6 +11,7 @@ import PropertyBought from "../Pages/PropertyBought/PropertyBought/PropertyBough
 import Reviews from "../Pages/Reviews/Reviews/Reviews";
 import DashboardLayout from "../Layout/DashboardLayout";
 import ProfilePage from "../Pages/ProfilePage/ProfilePage/ProfilePage";
+import OfferPage from "../Pages/OfferPage/OfferPage/OfferPage";
 import Login from "../Pages/Login/Login/Login";
 import Registration from "../Pages/Registration/Registration/Registration";
 import ErrorPage from "../Shared/ErrorPage";
@@ -21,6 +22,8 @@ import PropertyTable from "../Pages/UtilizePropertyPages/PropertyTable/PropertyT
 import ManageUsers from "../Pages/ManageUsers/ManageUsers/ManageUsers";
 import ManageReviews from "../Pages/ManageReviews/ManageReviews/ManageReviews";
 import ManageProperty from "../Pages/ManageProperty/ManageProperty/ManageProperty";
+import OfferedProperties from "../Pages/OfferedProperties/OfferedProperties/OfferedProperties";
+import PaymentPage from "../Pages/PaymentPage/PaymentPage/PaymentPage";
 
 export const router = createBrowserRouter([
   {
@@ -102,6 +105,22 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/update/:id",
         element:<UpdateProperty></UpdateProperty>
+      },
+      {
+        path: "/dashboard/offer/:id",
+        element:<OfferPage></OfferPage>
+      },
+      {
+        path: "/dashboard/offered-properties",
+        element:<OfferedProperties></OfferedProperties>
+      },
+      {
+        path: "/dashboard/property_bought",
+        element:<PropertyBought></PropertyBought>
+      },
+      {
+        path: "/dashboard/payment_page/id/:id",
+        element:<PaymentPage></PaymentPage>
       },
       
     ]
