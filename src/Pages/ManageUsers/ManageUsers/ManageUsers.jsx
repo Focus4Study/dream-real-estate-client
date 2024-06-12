@@ -61,8 +61,10 @@ const ManageUsers = () => {
                                     confirmButtonText: 'Ok'
                                 })
                             }
-                            refetch()
-                        })
+                            
+                        }
+                    )
+                    refetch()
                 }
                 else {
                     error => console.log(error);
@@ -96,6 +98,7 @@ const ManageUsers = () => {
                             }
                             refetch()
                         })
+                        
                 }
                 else {
                     error => console.log(error);
@@ -103,8 +106,7 @@ const ManageUsers = () => {
             })
 
     }
-    const handleMarkFraud = id => {
-
+    const handleMarkFraud = (id,email) => {
         Swal.fire({
             title: 'Confirm Access',
             text: 'Are you sure you would like to lable this user as fraud',
@@ -126,6 +128,23 @@ const ManageUsers = () => {
                             }
                             refetch()
                         })
+                        .then(
+                            axiosSecure.delete(`/property/${email}`)
+                        )
+                        .then(res => {
+                            if (res.data.deletedCount > 0) {
+                                Swal.fire({
+                                    title: 'Properties Deleted',
+                                    text: 'All properties have been deleted of the accused fraud',
+                                    icon: 'success',
+                                    confirmButtonText: 'Ok'
+                                })
+                            }
+                        })
+
+                        .then(
+                            handleDelete(id)
+                        )
                 }
                 else {
                     error => console.log(error);

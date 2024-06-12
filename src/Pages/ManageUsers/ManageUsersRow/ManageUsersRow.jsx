@@ -32,7 +32,7 @@ const ManageUsersRow = ({ user, handleDelete, handleMakeAdmin, handleMakeAgent, 
             </td>
 
             <td className="px-3 py-2 text-center">
-                <button onClick={()=>handleMarkFraud(_id)} title="Open details" className="btn dark:text-gray-400 hover:dark:bg-gray-300 focus:dark:bg-gray-300">
+                <button onClick={()=>handleMarkFraud(_id, email)} title="Open details" className="btn dark:text-gray-400 hover:dark:bg-gray-300 focus:dark:bg-gray-300">
                     Mark as Fraud
                 </button>
             </td>

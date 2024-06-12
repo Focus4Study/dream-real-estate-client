@@ -76,7 +76,7 @@ const Login = () => {
                                 console.log('user added');
                                 Swal.fire({
                                     title: 'Success',
-                                    text: 'You have successfully registered',
+                                    text: 'You have successfully logged in',
                                     icon: 'success',
                                     confirmButtonText: 'Continue'
                                 })

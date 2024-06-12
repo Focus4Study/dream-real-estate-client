@@ -4,6 +4,7 @@ import PropertyCard from "../PropertyCard/PropertyCard";
 
 const AllProperties = () => {
     const [,verifiedProperties] = useVerifiedProperties()
+    console.log(verifiedProperties);
     return (
         <div className="pt-28 grid grid-cols-3 gap-10">
             {

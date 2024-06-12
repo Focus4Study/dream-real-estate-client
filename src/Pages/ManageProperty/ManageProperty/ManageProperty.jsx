@@ -7,10 +7,8 @@ import PropertyRow from "../../UtilizePropertyPages/PropertyRow/PropertyRow";
 const ManageProperty = () => {
         const axiosSecure = useAxiosSecure()
         const [refetch, properties] = useProperties()
-        // const [wishlistState, setWishlistState] = useState()
         console.log(properties);
         const handleDelete = id => {
-
             Swal.fire({
                 title: 'Confirm Delete',
                 text: 'Are you sure you would like to delete this item?',
@@ -39,6 +37,35 @@ const ManageProperty = () => {
                 })
 
         }
+
+        const handleVerification = (id, verification_status) =>{
+            console.log(verification_status);
+            Swal.fire({
+                title: 'Confirm Update',
+                text: 'Are you sure you would like to Update this property?',
+                icon: 'info',
+                confirmButtonText: 'Yes, I am'
+            })
+                .then((result) => {
+                    if (result.isConfirmed) {
+                        axiosSecure.patch(`/property/status/${id}`, {verification_status})
+                            .then(data => {
+                                console.log(data);
+                                if (data.data.modifiedCount>0) {
+                                    Swal.fire({
+                                        title: 'Updated',
+                                        text: 'You have Updated a Listing',
+                                        icon: 'info',
+                                        confirmButtonText: 'Ok'
+                                    })
+                                }
+                                refetch()
+                            })
+                    }
+                })
+            // navigate(from)
+        }
+
         return (
             <div>
                 <Helmet>
@@ -70,7 +97,7 @@ const ManageProperty = () => {
                             </thead>
                             <tbody className="border-b dark:bg-gray-50 dark:border-gray-300">
                                 {
-                                    properties.map(property => <PropertyRow key={property._id} property={property} handleDelete={handleDelete}></PropertyRow>)
+                                    properties.map(property => <PropertyRow key={property._id} property={property} handleDelete={handleDelete} handleVerification={handleVerification}></PropertyRow>)
                                 }
                             </tbody>
                         </table>

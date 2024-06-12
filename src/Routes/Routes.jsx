@@ -16,6 +16,7 @@ import Registration from "../Pages/Registration/Registration/Registration";
 import ErrorPage from "../Shared/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import AddProperty from "../Pages/AddUpdateProperty/AddProperty/AddProperty";
+import UpdateProperty from "../Pages/AddUpdateProperty/UpdateProperty/UpdateProperty"
 import PropertyTable from "../Pages/UtilizePropertyPages/PropertyTable/PropertyTable";
 import ManageUsers from "../Pages/ManageUsers/ManageUsers/ManageUsers";
 import ManageReviews from "../Pages/ManageReviews/ManageReviews/ManageReviews";
@@ -97,6 +98,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/manageProperties",
         element: <ManageProperty></ManageProperty>
+      },
+      {
+        path: "/dashboard/update/:id",
+        element:<UpdateProperty></UpdateProperty>
       },
       
     ]

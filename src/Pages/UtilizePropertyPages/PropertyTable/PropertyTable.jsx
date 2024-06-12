@@ -38,7 +38,6 @@ const PropertyTable = () => {
                     error => console.log(error);
                 }
             })
-
     }
     return (
         <div>

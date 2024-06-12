@@ -2,9 +2,16 @@ import { useForm } from "react-hook-form"
 import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+// import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 const AddProperty = () => {
     const axiosSecure = useAxiosSecure()
+
+    // const axiosPublic = useAxiosPublic()
+
     const { user } = useAuth()
+    const agent_user_name = user?.name
+    const agent_image = user?.photoURL
+    const email = user?.email
     console.log(user);
     const {
         register,
@@ -16,6 +23,7 @@ const AddProperty = () => {
     });
 
     const onSubmit = data => {
+        const { agent_name_data } = data;
         const { property_image } = data;
         const { property_title } = data;
         const { property_location } = data;
@@ -23,10 +31,7 @@ const AddProperty = () => {
         const { min_price_range } = data;
         const { max_price_range } = data;
         const { nation } = data;
-        const agent_name = user?.name
-        const agent_image = user?.photoURL
-        const email = user?.email
-        const verification_status = 'Unverified'
+        const verification_status = 'Pending'
 
 
         const property = {
@@ -36,7 +41,7 @@ const AddProperty = () => {
             property_description,
             min_price_range,
             max_price_range,
-            agent_name,
+            agent_name : user?.name ? user.name : agent_name_data ,
             agent_image,
             email,
             nation,
@@ -80,6 +85,43 @@ const AddProperty = () => {
                 <h1 className="text-4xl text-center text-amber-500 pt-5 font-serif italic">---- Add Property For Sale -----</h1>
                 <form onSubmit={handleSubmit(onSubmit)} className="container flex flex-col mx-auto space-y-12 mb-20">
                     <div className="grid gap-10 mt-10 w-1/2 mx-auto">
+
+                        {
+                            agent_user_name ?
+                                <div>
+                                    <label className="text-xl font-semibold mr-5 text-white">Name</label>
+                                    <input
+                                        type="text"
+                                        value={agent_user_name}
+                                        readOnly
+                                        className="input input-ghost input-bordered text-white border-white w-full mt-3 focus:bg-white focus:bg-opacity-60 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" />
+                                </div>
+                                :
+                                <div>
+                                    <label htmlFor="agent_name_data" className="text-xl font-semibold mr-5 text-white">Name</label>
+                                    <input
+                                        name="agent_name_data"
+                                        id="agent_name_data"
+                                        type="text"
+                                        placeholder="Name"
+                                        {...register("agent_name_data", { required: true })}
+                                        className="input input-ghost input-bordered text-white border-white w-full mt-3 focus:bg-white focus:bg-opacity-60 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" />
+                                </div>
+                        }
+
+
+                        <div>
+                            <label htmlFor="email" className="text-xl font-semibold mr-5 text-white">Email</label>
+                            <input
+                                name="email"
+                                id="email"
+                                type="email"
+                                value={email}
+                                readOnly
+                                {...register("email", { required: true })}
+                                className="input input-ghost input-bordered text-white border-white w-full mt-3 focus:bg-white focus:bg-opacity-60 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" />
+                        </div>
+
 
                         <div>
                             <label htmlFor="property_image" className="text-xl font-semibold mr-5 text-white">Property Image Url</label>
@@ -164,7 +206,7 @@ const AddProperty = () => {
 
                     </div>
                     <input type="submit" className="btn bg-amber-600 border-amber-600 text-white font-bold w-1/2 mx-auto" value="Submit" />
-                    
+
                 </form>
             </div>
         </div>
