@@ -26,7 +26,7 @@ const OfferPage = () => {
             })
     }, [id, axiosPublic])
 
-    const { agent_name,email,property_image,  property_title, property_location, max_price_range, min_price_range} = item
+    const {_id, agent_name,email,property_image,  property_title, property_location, max_price_range, min_price_range} = item
     console.log(agent_name);
     console.log(item);
 
@@ -49,6 +49,7 @@ const OfferPage = () => {
         console.log(errors);
 
         const offered = {
+            property_id:_id,
             property_title,
             property_location,
             offer,
@@ -75,7 +76,7 @@ const OfferPage = () => {
                             if (res.data.insertedId) {
                                 Swal.fire({
                                     title: 'Offerd',
-                                    text: 'Offer Has been made',
+                                    text: 'Offer Has been made. You can see this listing in Property Bought page',
                                     icon: 'success',
                                     confirmButtonText: 'Ok'
                                 })
@@ -92,8 +93,6 @@ const OfferPage = () => {
             })
 
     }
-
-    
     return (
         <div style={{ backgroundImage: 'url(https://i.ibb.co/BnxdXf4/2151150977.jpg)' }} className="bg-no-repeat bg-cover bg-center w-full">
             <div className="bg-black bg-cover bg-opacity-30 py-20">

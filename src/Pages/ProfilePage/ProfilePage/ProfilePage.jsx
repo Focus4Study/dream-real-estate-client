@@ -13,7 +13,6 @@ const ProfilePage = () => {
                 setProfile(res.data)
             })
     }, [axiosSecure, user?.email])
-    console.log(profile);
     return (
         <div>
             <Helmet>
@@ -24,7 +23,7 @@ const ProfilePage = () => {
                     <img src={profile.photoURL } className="rounded-lg" />
                     <div>
                         <h1 className="text-5xl font-bold">{profile.name}</h1>
-                        <p className="pt-6 pb-3 uppercase">Access: {profile.role}</p>
+                        <p className="pt-6 pb-3">Access: {profile.role? <p className="uppercase">{profile.role}</p> : 'User'}</p>
                         <p className="pb-3">Email: {user.email}</p>
                         <p className="pb-6">Joined: {user.metadata.creationTime.slice(0,17)}</p>
                         <button className="btn btn-primary">Logout</button>

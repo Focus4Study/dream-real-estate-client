@@ -27,7 +27,6 @@ const PropertyBoughtRow = ({ offered }) => {
                 </div>
             </td>
             <td className="px-3 py-2 items-center gap-3">
-                <img className="rounded-full h-14 w-14 mx-auto" src="https://i.ibb.co/FBbxYNW/lodge.jpg" alt="" />
                 <p className="dark:text-gray-600 text-center">{agent_name}</p>
             </td>
 

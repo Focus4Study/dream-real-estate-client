@@ -31,13 +31,11 @@ const Login = () => {
     });
 
     const onSubmit = data => {
-        const { name } = data;
         const { email } = data;
         const { password } = data;
-        reset()
 
 
-        signIn(name, email, password)
+        signIn(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
@@ -48,7 +46,9 @@ const Login = () => {
                     confirmButtonText: 'Continue'
                 })
                 navigate(from, {replace:true})
-            })
+                reset()
+            }
+        ) 
             .catch(
                 error => {
                     console.log(error),

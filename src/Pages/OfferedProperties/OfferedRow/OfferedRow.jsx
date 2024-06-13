@@ -3,7 +3,7 @@
 
 
 
-const WishRow = ({ offered, handleVerification }) => {
+const OfferedRow = ({ offered, handleVerification }) => {
     const {
         _id,
         property_title,
@@ -38,22 +38,23 @@ const WishRow = ({ offered, handleVerification }) => {
             </td>
             <td className="px-3 py-2 text-center">
                 {
-                    status==='accepted'?
-                    <p className="uppercase">{status}</p>
+                    status!=='pending'?
+                    
+                    (status==='accepted'?<p className="uppercase">{status}</p>: <></>)
                     :
-                    <button onClick={()=>handleVerification(_id, accepted)} title="Open details" className="btn dark:text-gray-400 hover:dark:bg-gray-300 focus:dark:bg-gray-300">
+                    (<button onClick={()=>handleVerification(_id, accepted)} title="Open details" className="btn dark:text-gray-400 hover:dark:bg-gray-300 focus:dark:bg-gray-300">
                         Accept
-                    </button>
+                    </button>)
                 }
             </td>
             <td className="px-3 py-2 text-center">
             {
-                    status==='accepted'?
-                    <></>
+                    status!=='pending'?
+                    (status==='rejected'?<p className="uppercase">{status}</p>: <></>)
                     :
-                    <button onClick={()=>handleVerification(_id, rejected)} title="Open details" className="btn dark:text-gray-400 hover:dark:bg-gray-300 focus:dark:bg-gray-300">
+                    (<button onClick={()=>handleVerification(_id, rejected)} title="Open details" className="btn dark:text-gray-400 hover:dark:bg-gray-300 focus:dark:bg-gray-300">
                     Reject
-                </button>
+                </button>)
                 }
 
 
@@ -62,4 +63,4 @@ const WishRow = ({ offered, handleVerification }) => {
     );
 };
 
-export default WishRow;
+export default OfferedRow;

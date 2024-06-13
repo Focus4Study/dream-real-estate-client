@@ -1,8 +1,8 @@
 import { Helmet } from "react-helmet-async";
-import OfferedRow from "../OfferedRow/OfferedRow"
 import Swal from "sweetalert2";
 import useOffered from "../../../Hooks/useOffered";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import OfferedRow from "../OfferedRow/OfferedRow";
 
 const OfferedProperties = () => {
         const axiosPublic = useAxiosPublic()
@@ -13,8 +13,8 @@ const OfferedProperties = () => {
         const handleVerification = (id, status) =>{
             console.log(status);
             Swal.fire({
-                title: 'Confirm Update',
-                text: 'Are you sure you would like to Update this property?',
+                title: 'Confirm',
+                text: `Are you sure you would like to ${status.slice(0,6)} this property?`,
                 icon: 'info',
                 confirmButtonText: 'Yes, I am'
             })
@@ -25,8 +25,8 @@ const OfferedProperties = () => {
                                 console.log(data);
                                 if (data.data.modifiedCount>0) {
                                     Swal.fire({
-                                        title: 'Updated',
-                                        text: 'You have Updated a Listing',
+                                        title: `${status}`,
+                                        text: `You have ${status} this offer`,
                                         icon: 'info',
                                         confirmButtonText: 'Ok'
                                     })
@@ -41,10 +41,10 @@ const OfferedProperties = () => {
         return (
             <div>
                 <Helmet>
-                    <title>DR-Estate | Added Properties</title>
+                    <title>DR-Estate | Offered Properties</title>
                 </Helmet>
                 <div className="container p-2 mx-auto sm:p-4 dark:text-gray-800">
-                    <h2 className="text-2xl font-semibold leading-tight text-center mb-10">My Added Properties</h2>
+                    <h2 className="text-2xl font-semibold leading-tight text-center mb-10">Offered Properties</h2>
                     <div className="overflow-x-auto">
                         <table className="w-full p-6 text-xs text-left whitespace-nowrap tabs-boxed table-zebra-zebra">
                             <colgroup>
