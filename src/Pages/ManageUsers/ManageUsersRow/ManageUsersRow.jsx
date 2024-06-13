@@ -19,7 +19,7 @@ const ManageUsersRow = ({ user, handleDelete, handleMakeAdmin, handleMakeAgent, 
 
             <td className="px-3 py-2 items-center mx-auto">
                 {
-                    role === 'admin' ?
+                    role === 'admin' || role === 'agent'?
                         <p className="w-52 text-wrap mx-auto uppercase">{role}</p>
                         :
                         <button onClick={() => handleMakeAdmin(_id)} title="Open details" className="btn dark:text-gray-400 hover:dark:bg-gray-300 focus:dark:bg-gray-300">
@@ -31,7 +31,7 @@ const ManageUsersRow = ({ user, handleDelete, handleMakeAdmin, handleMakeAgent, 
 
             <td className="px-3 py-2 text-center">
                 {
-                    role === 'Agent' ?
+                    role === 'agent' || role === 'admin'?
                         <p className="w-52 text-wrap mx-auto uppercase">{role}</p>
                         :
                         <button onClick={() => handleMakeAgent(_id)} title="Open details" className="btn dark:text-gray-400 hover:dark:bg-gray-300 focus:dark:bg-gray-300">

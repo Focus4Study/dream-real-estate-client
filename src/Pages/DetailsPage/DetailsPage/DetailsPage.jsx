@@ -18,7 +18,7 @@ const DetailsPage = () => {
     const [property, setProperty] = useState([])
     const { _id, property_image, property_title, property_location, agent_name, agent_image, price_range, property_description } = property
     useEffect(() => {
-        fetch(`http://localhost:5000/property/details/${id}`, {
+        fetch(`https://dream-real-estate-server.vercel.app/property/details/${id}`, {
             method: 'GET'
         })
             .then(res => res.json())
@@ -30,7 +30,7 @@ const DetailsPage = () => {
 
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews/${id}`, {
+        fetch(`https://dream-real-estate-server.vercel.app/reviews/${id}`, {
             method: 'GET'
         })
             .then(res => res.json())
