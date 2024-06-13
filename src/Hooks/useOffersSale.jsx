@@ -1,9 +1,8 @@
 import useAuth from "./useAuth";
 import useAxiosPublic from "./useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
-
+// compares buyer email
 const useOffersSale = () => {
-
         const {user} = useAuth()
         const axiosPublic = useAxiosPublic()
         const {refetch, data: offersSale=[]} = useQuery({

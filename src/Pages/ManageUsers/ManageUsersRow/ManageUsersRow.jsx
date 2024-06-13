@@ -1,6 +1,5 @@
-// import { FaUserAlt } from "react-icons/fa";
 const ManageUsersRow = ({ user, handleDelete, handleMakeAdmin, handleMakeAgent, handleMarkFraud }) => {
-    const { _id, name, email, photoURL } = user
+    const { _id, name, email, photoURL, role } = user
     return (
 
         <tr>
@@ -19,19 +18,31 @@ const ManageUsersRow = ({ user, handleDelete, handleMakeAdmin, handleMakeAgent, 
             </td>
 
             <td className="px-3 py-2 items-center mx-auto">
-                <button onClick={() => handleMakeAdmin(_id)} title="Open details" className="btn dark:text-gray-400 hover:dark:bg-gray-300 focus:dark:bg-gray-300">
-                    Make Admin
-                </button>
+                {
+                    role === 'admin' ?
+                        <p className="w-52 text-wrap mx-auto uppercase">{role}</p>
+                        :
+                        <button onClick={() => handleMakeAdmin(_id)} title="Open details" className="btn dark:text-gray-400 hover:dark:bg-gray-300 focus:dark:bg-gray-300">
+                            Make Admin
+                        </button>
+                }
+
             </td>
 
             <td className="px-3 py-2 text-center">
-                <button onClick={() => handleMakeAgent(_id)} title="Open details" className="btn dark:text-gray-400 hover:dark:bg-gray-300 focus:dark:bg-gray-300">
-                    Make Agent
-                </button>
+                {
+                    role === 'Agent' ?
+                        <p className="w-52 text-wrap mx-auto uppercase">{role}</p>
+                        :
+                        <button onClick={() => handleMakeAgent(_id)} title="Open details" className="btn dark:text-gray-400 hover:dark:bg-gray-300 focus:dark:bg-gray-300">
+                            Make Agent
+                        </button>
+                }
+
             </td>
 
             <td className="px-3 py-2 text-center">
-                <button onClick={()=>handleMarkFraud(_id, email)} title="Open details" className="btn dark:text-gray-400 hover:dark:bg-gray-300 focus:dark:bg-gray-300">
+                <button onClick={() => handleMarkFraud(_id, email)} title="Open details" className="btn dark:text-gray-400 hover:dark:bg-gray-300 focus:dark:bg-gray-300">
                     Mark as Fraud
                 </button>
             </td>

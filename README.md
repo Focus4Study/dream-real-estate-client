@@ -1,8 +1,5 @@
-● property title
-● reviewer name
-● reviewer img
-● review time
-● agent name
-● review description
-● delete button.
+Admin Email : admin@mail.com
+Admin Pass  : @Admin123
 
+Agent Email : agent@gmail.com
+Agent Pass  : @Agent123 

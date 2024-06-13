@@ -148,7 +148,7 @@ const DashboardNavbar = () => {
                                                 </li>
                                             </Link>
 
-                                            <Link to={'/'}>
+                                            <Link to={'/dashboard/property_sold'}>
                                                 <li className="rounded-sm">
                                                     <button className="flex items-center p-2 space-x-3 rounded-md">
                                                         <BsHouseCheck className="w-5 h-5 fill-current dark:text-gray-600" />

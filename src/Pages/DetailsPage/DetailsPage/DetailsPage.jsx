@@ -118,10 +118,6 @@ const DetailsPage = () => {
                         toast("Your review has been posted");
                     }
                 })
-                .catch(
-                    error => { console.log(error) },
-                    toast("Oops..., Something went wrong!")
-                )
         }
         else {
             Swal.fire({
@@ -143,51 +139,54 @@ const DetailsPage = () => {
 
     return (
 
-        <div className="relative space-y-10">
+        <div className="relative space-y-10 bg-orange-50">
             <img className="w-full max-h-[700px]" src={property_image} alt="" />
             <ToastContainer />
-            <div className="space-y-10">
-                <h1 className="text-7xl font-bold mb-20">{property_title}</h1>
-                <p>{property_description}</p>
-                <button onClick={() => addToCart(property)} className="btn btn-ghost block">Add To Wish list</button>
-            </div>
-            <div className="absolute top-[500px] right-10 w-fit space-y-5 text-center border p-8 rounded-lg  bg-slate-50">
-                <div className="flex items-center gap-3 justify-center">
-                    <img src={agent_image} alt="" className="object-cover object-center w-20 rounded dark:bg-gray-500" />
-                    <h3 className="text-2xl">{agent_name}</h3>
+            <div className="flex gap-5 container mx-auto">
+                <div className="space-y-10 container">
+                    <h1 className="text-5xl font-bold mb-20">{property_title}</h1>
+                    <p>{property_description}</p>
+                    <button onClick={() => addToCart(property)} className="btn bg-emerald-400 font-bold block">Add To Wish list</button>
                 </div>
-                <div className="divider"></div>
-                <h4 className="text-2xl font-semibold">{property_location}</h4>
-                <h2 className="text-2xl font-bold">{price_range}</h2>
-                {/* Open the modal using document.getElementById('ID').showModal() method */}
-
-
-                <label htmlFor="my_modal_7" className="btn">Add Review</label>
-
-                {/* Put this part before </body> tag */}
-                <input type="checkbox" id="my_modal_7" className="modal-toggle" />
-                <div className="modal" role="dialog">
-                    <div className="modal-box">
-                        <h2>ADD REVIEW</h2>
-                        <form method="dialog" onSubmit={(e) => handleReviewPost(e)} className="flex flex-col justify-center w-full">
-                            <textarea className="textarea textarea-info w-full" name="review" placeholder="Bio"></textarea>
-                            <div className="flex justify-end p-2">
-                                <div>
-                                    <input className="btn btn-primary" type="submit" value="submit" />
-                                </div>
-                            </div>
-                        </form>
+                <div className="w-fit space-y-5 text-center border p-8 rounded-lg  bg-slate-50">
+                    <div className="flex items-center gap-3 justify-center">
+                        <img src={agent_image} alt="" className="object-cover object-center w-20 rounded dark:bg-gray-500" />
+                        <h3 className="text-2xl">{agent_name}</h3>
                     </div>
-                    <label className="modal-backdrop" htmlFor="my_modal_7">Close</label>
-                </div>
-            </div >
+                    <div className="divider"></div>
+                    <h4 className="text-xl font-semibold">Location: {property_location}</h4>
+                    <h2 className="text-2xl font-bold">{price_range}</h2>
+
+
+
+                    <label htmlFor="my_modal_7" className="btn bg-emerald-400 font-bold">Add Review</label>
+
+
+                    <input type="checkbox" id="my_modal_7" className="modal-toggle" />
+                    <div className="modal" role="dialog">
+                        <div className="modal-box">
+                            <h2>ADD REVIEW</h2>
+                            <form method="dialog" onSubmit={(e) => handleReviewPost(e)} className="flex flex-col justify-center w-full">
+                                <textarea className="textarea textarea-info w-full" name="review" placeholder="Bio"></textarea>
+                                <div className="flex justify-end p-2">
+                                    <div>
+                                        <input className="btn bg-emerald-400" type="submit" value="submit" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <label className="modal-backdrop" htmlFor="my_modal_7">Close</label>
+                    </div>
+                </div >
+                <div className="divider"></div>
+            </div>
+            <div className="bg-green-100 p-10  pb-20 mx-auto">
+            <h2 className="container text-4xl font-semibold uppercase font-serif">Reviews</h2>
             <div className="divider"></div>
-            <div>
                 {
                     reviews.map(review => (<UserReview review={review} key={review._id}></UserReview>))
                 }
             </div>
-
         </div >
     );
 };

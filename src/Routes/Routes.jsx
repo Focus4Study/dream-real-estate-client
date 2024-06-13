@@ -24,6 +24,7 @@ import ManageReviews from "../Pages/ManageReviews/ManageReviews/ManageReviews";
 import ManageProperty from "../Pages/ManageProperty/ManageProperty/ManageProperty";
 import OfferedProperties from "../Pages/OfferedProperties/OfferedProperties/OfferedProperties";
 import PaymentPage from "../Pages/PaymentPage/PaymentPage/PaymentPage";
+import PropertySold from "../Pages/Home/AdvertisementSection/PropertySold/PropertySold/PropertySold";
 
 export const router = createBrowserRouter([
   {
@@ -121,6 +122,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/payment_page/id/:id",
         element:<PaymentPage></PaymentPage>
+      },
+      {
+        path: "/dashboard/property_sold",
+        element:<PropertySold></PropertySold>
       },
       
     ]

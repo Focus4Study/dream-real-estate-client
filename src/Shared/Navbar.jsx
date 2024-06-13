@@ -1,11 +1,14 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
 
 
 const Navbar = () => {
-
+    const [hover, setHover] = useState(false)
     const { user, logOut } = useContext(AuthContext)
+    const handleHover = () => {
+        setHover(!hover)
+    }
 
     const links = <>
         <Link to={'/'}><li className="btn-ghost text-xs px-4 py-2 uppercase">Home</li></Link>
@@ -40,8 +43,18 @@ const Navbar = () => {
                     </ul>
                 </div>
                 {user ?
-                    <div onClick={()=>logOut()} className="navbar-end">
-                        <button className="btn btn-error">Logout</button>
+                    <div onMouseEnter={() => handleHover()} onMouseLeave={() => handleHover()} className="navbar-end">
+                        {
+                            !hover ?
+                                (<div className="p-2 rounded-md flex flex-row-reverse items-center gap-2">
+                                    <img className="rounded-full h-10 w-10 mx-auto" src={user?.photoURL} alt="" />
+                                    <p className="text-center text-xl">{user.displayName}</p>
+                                </div>) 
+                                : 
+                                (<div className="" onClick={() => logOut()}>
+                                    <button className="btn btn-error">Logout</button>
+                                </div>)
+                        }
                     </div>
                     :
                     <div className="navbar-end">

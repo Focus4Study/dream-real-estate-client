@@ -8,7 +8,7 @@ const OfferedProperties = () => {
         const axiosPublic = useAxiosPublic()
         const [refetch, offers] = useOffered()
         console.log(offers);
-        
+        const forSale = offers.filter((property) => !property.status.includes('sold'))
 
         const handleVerification = (id, status) =>{
             console.log(status);
@@ -69,7 +69,7 @@ const OfferedProperties = () => {
                             </thead>
                             <tbody className="border-b dark:bg-gray-50 dark:border-gray-300">
                                 {
-                                    offers.map(offered => <OfferedRow key={offered._id} offered={offered} handleVerification={handleVerification}></OfferedRow>)
+                                    forSale.map(offered => <OfferedRow key={offered._id} offered={offered} handleVerification={handleVerification}></OfferedRow>)
                                 }
                             </tbody>
                         </table>

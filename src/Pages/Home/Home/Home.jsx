@@ -1,3 +1,4 @@
+import AboutUs from "../AboutUs/AboutUs/AboutUs";
 import AdvertisementSection from "../AdvertisementSection/AdvertisementSection";
 import Banner from "../Banner/Banner";
 import Properties from "../Properties/Properties";
@@ -10,6 +11,7 @@ const Home = () => {
             <Banner></Banner>
             <Properties></Properties>
             <AdvertisementSection></AdvertisementSection>
+            <AboutUs></AboutUs>
             <Review></Review>
             {/* TODO: make another unique section */}
         </div>

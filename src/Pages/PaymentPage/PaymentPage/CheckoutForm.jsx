@@ -65,7 +65,7 @@ const CheckoutForm = (id) => {
             console.log('paymentIntent',paymentIntent);
             if (paymentIntent.status === 'succeeded') {
                 console.log('transaction id', paymentIntent.id);
-
+                setTransactionID(paymentIntent.id)
                 const payment ={
                     email: user.email,
                     price: propertyPrice,

@@ -3,7 +3,6 @@ import useAxiosPublic from "./useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 
 const useOffered = () => {
-
         const {user} = useAuth()
         const axiosPublic = useAxiosPublic()
         const {refetch, data: offers=[]} = useQuery({
