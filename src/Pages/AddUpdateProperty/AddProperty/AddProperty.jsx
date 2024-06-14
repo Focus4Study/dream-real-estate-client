@@ -47,7 +47,7 @@ const AddProperty = () => {
             property_description,
             min_price_range,
             max_price_range,
-            agent_name: user?.name ? user.name : agent_name_data,
+            agent_name: agent_name_data,
             agent_image,
             email,
             nation,
