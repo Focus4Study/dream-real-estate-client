@@ -39,8 +39,8 @@ const ManageProperty = () => {
 
     const handleVerification = (id, verification_status) => {
         Swal.fire({
-            title: 'Confirm Update',
-            text: 'Are you sure you would like to Update this property?',
+            title: `Confirm ${verification_status}`,
+            text: `Are you sure you would like to ${verification_status} this property?`,
             icon: 'info',
             confirmButtonText: 'Yes, I am'
         })
@@ -50,8 +50,8 @@ const ManageProperty = () => {
                         .then(data => {
                             if (data.data.modifiedCount > 0) {
                                 Swal.fire({
-                                    title: 'Updated',
-                                    text: 'You have Updated a Listing',
+                                    title: `${verification_status}ed`,
+                                    text: `You have ${verification_status}ed a Listing`,
                                     icon: 'info',
                                     confirmButtonText: 'Ok'
                                 })
