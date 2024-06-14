@@ -140,7 +140,7 @@ const DetailsPage = () => {
         <div className="relative space-y-10 bg-orange-50">
             <img className="w-full max-h-[700px]" src={property_image} alt="" />
             <ToastContainer />
-            <div className="flex gap-5 container mx-auto">
+            <div className="flex flex-col md:flex-row gap-5 p-5 container mx-auto">
                 <div className="space-y-10 container">
                     <h1 className="text-5xl font-bold mb-20">{property_title}</h1>
                     <p>{property_description}</p>

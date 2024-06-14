@@ -2,13 +2,13 @@
 
 const Properties = () => {
     return (
-        <div className="flex gap-10">
+        <div className="flex flex-col lg:flex-row gap-10">
             <div className="relative">
-                <img className="w-3/4 absolute -right-20 -top-[220px] border-white border-[30px] rounded-lg bg-white m-20" src="https://i.ibb.co/SKM6FZb/9636.jpg" alt="" />
+                <img className="w-3/4 absolute -right-20 -top-[150px] lg:-top-[220px] border-white border-[10px] lg:border-[30px] rounded-lg bg-white m-20" src="https://i.ibb.co/SKM6FZb/9636.jpg" alt="" />
                 <img className="-ml-20" src="https://i.ibb.co/fYSHjRH/2151264503.jpg" alt="" />
             </div>
-            <div className="w-9/12">
-                <h1 className="text-7xl font-serif font-bold -mt-20 mb-8">Welcome to Dreams Real Estate</h1>
+            <div className="w-9/12 mx-auto">
+                <h1 className="lg:text-7xl text-xl font-serif font-bold lg:-mt-20 mb-8">Welcome to Dreams Real Estate</h1>
                 <p>Discover your dream home with Dreams Real Estate, where we turn your property aspirations into reality. Whether you&apos;sre looking to buy, sell, or rent, our dedicated team of experts is here to guide you every step of the way.</p>
                     <br />
                     <p>

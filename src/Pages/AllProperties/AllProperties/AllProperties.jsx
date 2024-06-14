@@ -39,19 +39,19 @@ const AllProperties = () => {
     return (
         <div>
             <div className="bg-[url('https://i.ibb.co/pw1QDMj/2150799695.jpg')] bg-center pt-36 pb-24 mb-10">
-                <form onSubmit={(e) => handleQuery(e)} className="w-1/2 mx-auto md:mb-10 relative">
+                <form onSubmit={(e) => handleQuery(e)} className="md:w-1/2 w-9/12 mx-auto md:mb-10 relative">
                     <input className="input input-bordered w-full mt-3 focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" type="search" name="search" id="" />
-                    <input className="absolute top-3 right-0 px-7 btn bg-gray-900 text-white" type="submit" value="Search" />
+                    <input className="absolute top-3 right-0 md:px-7 btn bg-gray-900 text-white" type="submit" value="Search" />
                 </form>
                 <div className="flex justify-end pt-10 mr-10">
-                    <select onChange={(e)=>handleSort(e)} className="select select-bordered w-full max-w-xs">
+                    <select onChange={(e)=>handleSort(e)} className="select select-bordered md:w-full md:max-w-xs">
                         <option disabled selected>Sort</option>
                         <option>Low to High</option>
                         <option>High to Low</option>
                     </select>
                 </div>
             </div>
-            <div className="grid grid-cols-3 gap-10 container mx-auto">
+            <div className="grid md:grid-cols-3 gap-10 container px-5 mx-auto">
                 {
                     filteredProperties.map(property => <PropertyCard key={property._id} property={property}></PropertyCard>)
                 }

@@ -1,12 +1,14 @@
 Dream Real Estate
 
+assignment12_category_0011
+
 Client Side Website Live Link: https://dream-real-estate-efecd.web.app
 Client Side Github Link: https://github.com/programming-hero-web-course1/b9a12-client-side-Focus4Study
 
 Server Side Live Link: https://dream-real-estate-server.vercel.app
 Server Side Github Link: https://github.com/programming-hero-web-course1/b9a12-server-side-Focus4Study
 
-Admin Email : admin@mail.com
+Admin Email : admin@gmail.com
 Admin Pass  : @Admin123
 
 Agent Email : agent@gmail.com

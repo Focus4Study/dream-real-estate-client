@@ -4,7 +4,7 @@ import DashboardNavbar from "../Pages/Dashboard/DashboardNavbar/DashboardNavbar"
 
 const DashboardLayout = () => {
     return (
-        <div className="flex">
+        <div className="md:flex">
             <div className="justify-start">
                 <DashboardNavbar></DashboardNavbar>
             </div>

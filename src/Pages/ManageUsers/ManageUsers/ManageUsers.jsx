@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { Helmet } from "react-helmet-async";
 import ManageUsersRow from "../ManageUsersRow/ManageUsersRow";
 import useUsersList from "../../../Hooks/useUsersList";
+import ManageUsersRowResponsive from "../ManageUsersRow/ManageUsersRowResponsive";
 
 
 const ManageUsers = () => {
@@ -166,7 +167,7 @@ const ManageUsers = () => {
                             <col />
                             <col className="w-5" />
                         </colgroup>
-                        <thead className="bg-red-300">
+                        <thead className="bg-red-300 hidden sm:block">
                             <tr className="dark:bg-gray-300 text-center">
                                 <th className="p-3">User Image</th>
                                 <th className="p-3">User Name</th>
@@ -178,7 +179,18 @@ const ManageUsers = () => {
 
                             </tr>
                         </thead>
-                        <tbody className="border-b dark:bg-gray-50 dark:border-gray-300">
+                        <thead className="bg-red-300">
+                            <tr className="dark:bg-gray-300 text-center md:hidden">
+                                <th className="p-3">User</th>
+                            </tr>
+                        </thead>
+                        <tbody className="border-b dark:bg-gray-50 dark:border-gray-300 md:hidden">
+                            {
+                                users.map(user => <ManageUsersRowResponsive key={user._id} user={user} handleDelete={handleDelete} handleMakeAdmin={handleMakeAdmin} handleMakeAgent={handleMakeAgent} handleMarkFraud={handleMarkFraud}></ManageUsersRowResponsive>)
+                            }
+
+                        </tbody>
+                        <tbody className="border-b dark:bg-gray-50 dark:border-gray-300 hidden sm:block">
                             {
                                 users.map(user => <ManageUsersRow key={user._id} user={user} handleDelete={handleDelete} handleMakeAdmin={handleMakeAdmin} handleMakeAgent={handleMakeAgent} handleMarkFraud={handleMarkFraud}></ManageUsersRow>)
                             }

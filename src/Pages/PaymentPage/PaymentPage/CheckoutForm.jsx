@@ -17,12 +17,11 @@ const CheckoutForm = (id) => {
     const [, offersSale] = useOffersSale()
     const propertyPrice = offersSale.find(item => item._id === id.id)?.offer
     const buyingProperty = offersSale.find(item => item._id === id.id)
-    console.log(propertyPrice);
+
 
     useEffect(() => {
         axiosSecure.post('/create-payment-intent', { price: propertyPrice })
             .then(res => {
-                console.log(res.data.clientSecret);
                 setClientSecret(res.data.clientSecret)
             })
 
@@ -42,7 +41,6 @@ const CheckoutForm = (id) => {
             card
         })
         if (error) {
-            console.log('payment error', error);
             setError(error.message)
         }
         else {

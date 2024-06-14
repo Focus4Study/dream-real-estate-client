@@ -1,8 +1,3 @@
-
-
-
-
-
 const OfferedRow = ({ offered, handleVerification }) => {
     const {
         _id,

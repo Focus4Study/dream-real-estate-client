@@ -44,6 +44,11 @@ const PropertyBought = () => {
                                     offersSale.map(offered => <PropertyBoughtRow key={offered._id} offered={offered}></PropertyBoughtRow>)
                                 }
                         </tbody>
+                        <tbody className="border-b dark:bg-gray-50 dark:border-gray-300">                       
+                        {
+                                    offersSale.map(offered => <PropertyBoughtRow key={offered._id} offered={offered}></PropertyBoughtRow>)
+                                }
+                        </tbody>
                     </table>
                 </div>
             </div>

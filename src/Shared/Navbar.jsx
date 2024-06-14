@@ -11,9 +11,9 @@ const Navbar = () => {
     }
 
     const links = <>
-        <Link to={'/'}><li className="btn-ghost text-xs px-4 py-2 uppercase">Home</li></Link>
-        <Link to={'/all-properties'}><li className="btn-ghost text-xs px-4 py-2 uppercase">All properties</li></Link>
-        <Link to={'/dashboard'}><li className="btn-ghost text-xs px-4 py-2 uppercase">Dashboard</li></Link>
+        <Link to={'/'}><li className="md:btn-ghost text-black text-center lg:text-white text-xs lg:px-4 py-2 uppercase">Home</li></Link>
+        <Link to={'/all-properties'}><li className="md:btn-ghost text-black lg:text-white text-center text-xs lg:px-4 py-2 uppercase">All properties</li></Link>
+        <Link to={'/dashboard'}><li className="md:btn-ghost text-black lg:text-white text-center text-xs lg:px-4 py-2 uppercase">Dashboard</li></Link>
     </>
 
     return (
@@ -32,7 +32,7 @@ const Navbar = () => {
                     </div>
                     <div className="flex">
                         <img className="w-20" src="https://i.ibb.co/YXsq6Mj/Untitled-1.png" alt="" />
-                        <h1 className="btn btn-ghost text-xl font-serif">Dreams Real Estate</h1>
+                        <h1 className="btn btn-ghost lg:text-xl font-serif">Dreams Real Estate</h1>
                     </div>
                 </div>
                 <div className="hidden ml-20 lg:flex navbar-center">
@@ -48,7 +48,7 @@ const Navbar = () => {
                             !hover ?
                                 (<div className="p-2 rounded-md flex flex-row-reverse items-center gap-2">
                                     <img className="rounded-full h-10 w-10 mx-auto" src={user?.photoURL} alt="" />
-                                    <p className="text-center text-xl">{user.displayName}</p>
+                                    <p className="text-center text-xl hidden sm:block">{user.displayName}</p>
                                 </div>) 
                                 : 
                                 (<div className="" onClick={() => logOut()}>

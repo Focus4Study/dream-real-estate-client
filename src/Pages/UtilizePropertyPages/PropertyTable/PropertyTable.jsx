@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useMyProperties from "../../../Hooks/useMyProperties";
 import PropertyRow from "../PropertyRow/PropertyRow";
+import PropertyRowResponsive from "../PropertyRow/PropertyRowResponsive";
 // import { useState } from "react";
 
 const PropertyTable = () => {
@@ -58,7 +59,7 @@ const PropertyTable = () => {
                             <col className="w-5" />
                         </colgroup>
                         <thead className="bg-red-300">
-                            <tr className="dark:bg-gray-300 text-center">
+                            <tr className="dark:bg-gray-300 text-center hidden sm:block">
                                 <th className="p-3">Property</th>
                                 <th className="p-3">Property Location</th>
                                 <th className="p-3">Agent</th>
@@ -68,7 +69,15 @@ const PropertyTable = () => {
                                 <th className="p-3">Remove</th>
                             </tr>
                         </thead>
-                        <tbody className="border-b dark:bg-gray-50 dark:border-gray-300">
+                        <thead className="bg-red-300 md:hidden">
+                            <tr className="dark:bg-gray-300 text-center">
+                                <th className="p-3 text-center">Property</th>
+                            </tr>
+                        </thead>
+                        <tbody className="border-b md:hidden">
+                            {myProperties.map(property => <PropertyRowResponsive key={property._id} property={property} handleDelete={handleDelete}></PropertyRowResponsive>)}
+                        </tbody>
+                        <tbody className="border-b dark:bg-gray-50 dark:border-gray-300 hidden sm:block">
                             {
                                 myProperties.map(property => <PropertyRow key={property._id} property={property} handleDelete={handleDelete}></PropertyRow>)
                             }
