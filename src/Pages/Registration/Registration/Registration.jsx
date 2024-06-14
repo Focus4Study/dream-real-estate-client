@@ -29,7 +29,6 @@ const Registration = () => {
                 axiosPublic.post('/users', userInfo)
                             .then(res => {
                                 if (res.data) {
-                                    console.log('user added');
                                     Swal.fire({
                                         title: 'Success',
                                         text: 'You have successfully registered',
@@ -84,7 +83,6 @@ const Registration = () => {
                         axiosPublic.post('/users', userInfo)
                             .then(res => {
                                 if (res.data.insertedId) {
-                                    console.log('user added');
                                     Swal.fire({
                                         title: 'Success',
                                         text: 'You have successfully registered',

@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
-   
+
 
 const OfferPage = () => {
 
@@ -26,7 +26,7 @@ const OfferPage = () => {
             })
     }, [id, axiosPublic])
 
-    const {_id, agent_name,email,property_image,  property_title, property_location, max_price_range, min_price_range} = item
+    const { _id, agent_name, email, property_image, property_title, property_location, max_price_range, min_price_range } = item
 
 
     const { user } = useAuth()
@@ -40,24 +40,24 @@ const OfferPage = () => {
     });
 
     const onSubmit = data => {
-        const { offer} = data;
+        const { offer } = data;
         const { buyer_name } = data;
         const { buyer_email } = data;
         const status = 'pending'
         console.log(errors);
 
         const offered = {
-            property_id:_id,
-            property_title,
-            property_location,
-            offer,
-            buyer_name,
-            buyer_email,
-            email,
-            agent_name,
-            property_image,
-            status
-        } 
+            property_id: _id,
+            property_title:property_title,
+            property_location:property_location,
+            offer:offer,
+            buyer_name:buyer_name,
+            buyer_email:buyer_email,
+            email:email,
+            agent_name:agent_name,
+            property_image:property_image,
+            status:status
+        }
 
         Swal.fire({
             title: 'Confirm Your Offer',
@@ -78,15 +78,15 @@ const OfferPage = () => {
                                     confirmButtonText: 'Ok'
                                 })
                             }
-                            
+
                         }
-                    )
+                        )
                 }
                 else {
                     error => console.log(error);
                 }
                 navigate(from)
-              reset()  
+                reset()
             })
 
     }
@@ -106,6 +106,7 @@ const OfferPage = () => {
                                 id="agent_name"
                                 type="text"
                                 value={agent_name}
+                                {...register("agent_name")}
                                 readOnly
                                 className="input input-ghost input-bordered text-white border-white w-full mt-3 focus:bg-white focus:bg-opacity-60 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" />
                         </div>
@@ -116,6 +117,7 @@ const OfferPage = () => {
                                 id="agent_name"
                                 type="text"
                                 value={property_title}
+                                {...register("property_title")}
                                 readOnly
                                 className="input input-ghost input-bordered text-white border-white w-full mt-3 focus:bg-white focus:bg-opacity-60 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" />
                         </div>
@@ -129,13 +131,14 @@ const OfferPage = () => {
                                 type="text"
                                 value={property_location}
                                 readOnly
+                                {...register("property_location")}
                                 className="input input-ghost input-bordered text-white border-white w-full mt-3 focus:bg-white focus:bg-opacity-60 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" />
                         </div>
 
                         <div>
                             <label htmlFor="buyer_email" className="text-xl font-semibold mr-5 text-white">Buyer Email</label>
                             <input name="buyer_email"
-                            {...register("buyer_email")}
+                                {...register("buyer_email")}
                                 value={user?.email}
                                 readOnly
                                 className="input input-bordered border-white w-full mt-3 input-ghost text-white focus:bg-white focus:bg-opacity-60 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" />

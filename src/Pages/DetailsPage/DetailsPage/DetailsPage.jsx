@@ -16,7 +16,7 @@ const DetailsPage = () => {
     const axiosSecure = useAxiosSecure()
     const { id } = useParams()
     const [property, setProperty] = useState([])
-    const { _id, property_image, property_title, property_location, agent_name, agent_image, price_range, property_description } = property
+    const { _id, property_image, property_title, property_location, agent_name, agent_image, max_price_range,min_price_range, property_description } = property
     useEffect(() => {
         fetch(`https://dream-real-estate-server.vercel.app/property/details/${id}`, {
             method: 'GET'
@@ -51,7 +51,8 @@ const DetailsPage = () => {
                 property_location: property?.property_location,
                 agent_name: property?.agent_name,
                 agent_image: property?.agent_image,
-                price_range: property?.price_range,
+                max_price_range:property?.max_price_range,
+                min_price_range:property?.min_price_range,
                 verification_status: property?.verification_status
             }
             axiosSecure.post('/wishlist', wishedProperty)
@@ -153,7 +154,7 @@ const DetailsPage = () => {
                     </div>
                     <div className="divider"></div>
                     <h4 className="text-xl font-semibold">Location: {property_location}</h4>
-                    <h2 className="text-2xl font-bold">{price_range}</h2>
+                    <h2 className="text-2xl font-bold">{min_price_range}-{max_price_range}</h2>
 
 
 
