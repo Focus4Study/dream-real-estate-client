@@ -54,7 +54,6 @@ const DetailsPage = () => {
                 price_range: property?.price_range,
                 verification_status: property?.verification_status
             }
-            console.log(wishedProperty);
             axiosSecure.post('/wishlist', wishedProperty)
                 .then(res => {
                     console.log(res.data);
@@ -110,7 +109,6 @@ const DetailsPage = () => {
                 agentName: agent_name,
                 reviewDescription,
             }
-            console.log(review);
             axiosSecure.post('/reviews', review)
                 .then(res => {
                     console.log(res.data);

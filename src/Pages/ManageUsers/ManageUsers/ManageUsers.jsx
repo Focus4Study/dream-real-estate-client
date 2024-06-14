@@ -21,7 +21,6 @@ const ManageUsers = () => {
                 if (result.isConfirmed) {
                     axiosSecure.delete(`users/${id}`)
                         .then(data => {
-                            console.log(data);
                             if (data.data.deletedCount > 0) {
                                 Swal.fire({
                                     title: 'Deleted',
@@ -51,7 +50,6 @@ const ManageUsers = () => {
                 if (result.isConfirmed) {
                     axiosSecure.patch(`/users/admin/${id}`)
                         .then(res => {
-                            console.log(res);
                             if (res.data.modifiedCount > 0) {
                                 Swal.fire({
                                     title: 'New Admin',
@@ -86,7 +84,6 @@ const ManageUsers = () => {
                 if (result.isConfirmed) {
                     axiosSecure.patch(`/users/agent/${id}`)
                         .then(res => {
-                            console.log(res);
                             if (res.data.modifiedCount > 0) {
                                 Swal.fire({
                                     title: 'New Agent',

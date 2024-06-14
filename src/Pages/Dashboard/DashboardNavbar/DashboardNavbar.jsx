@@ -15,7 +15,6 @@ const DashboardNavbar = () => {
     const [isAdmin] = useAdmin()
     const [isAgent] = useAgent()
 
-
     const { user } = useAuth()
     const [profile, setProfile] = useState({})
     const axiosSecure = useAxiosSecure()

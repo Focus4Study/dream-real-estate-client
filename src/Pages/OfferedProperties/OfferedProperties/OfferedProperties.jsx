@@ -7,11 +7,9 @@ import OfferedRow from "../OfferedRow/OfferedRow";
 const OfferedProperties = () => {
         const axiosPublic = useAxiosPublic()
         const [refetch, offers] = useOffered()
-        console.log(offers);
         const forSale = offers.filter((property) => !property.status.includes('sold'))
 
         const handleVerification = (id, status) =>{
-            console.log(status);
             Swal.fire({
                 title: 'Confirm',
                 text: `Are you sure you would like to ${status.slice(0,6)} this property?`,
@@ -22,7 +20,6 @@ const OfferedProperties = () => {
                     if (result.isConfirmed) {
                         axiosPublic.patch(`/offers/status/${id}`, {status})
                             .then(data => {
-                                console.log(data);
                                 if (data.data.modifiedCount>0) {
                                     Swal.fire({
                                         title: `${status}`,

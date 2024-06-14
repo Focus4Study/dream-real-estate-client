@@ -21,7 +21,6 @@ const ManageReviews = () => {
                 if (result.isConfirmed) {
                     axiosSecure.delete(`reviews/${id}`)
                         .then(data => {
-                            console.log(data);
                             if (data.data.deletedCount > 0) {
                                 Swal.fire({
                                     title: 'Deleted',

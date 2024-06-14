@@ -73,7 +73,6 @@ const Login = () => {
             axiosPublic.post('/users', userInfo)
                         .then(res => {
                             if (res.data) {
-                                console.log('user added');
                                 Swal.fire({
                                     title: 'Success',
                                     text: 'You have successfully logged in',

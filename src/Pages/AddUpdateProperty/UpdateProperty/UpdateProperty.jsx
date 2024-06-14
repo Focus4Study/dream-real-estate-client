@@ -21,8 +21,6 @@ const AddProperty = () => {
     }, [id, axiosSecure])
 
     const { agent_name, email, verification_status } = item
-    console.log(agent_name);
-    console.log(item);
 
 
     const { user } = useAuth()
@@ -73,7 +71,6 @@ const AddProperty = () => {
                 if (result.isConfirmed) {
                     axiosSecure.patch(`/property/${id}`, updatedProperty)
                         .then(data => {
-                            console.log(data);
                             if (data.data.modifiedCount>0) {
                                 Swal.fire({
                                     title: 'Updated',

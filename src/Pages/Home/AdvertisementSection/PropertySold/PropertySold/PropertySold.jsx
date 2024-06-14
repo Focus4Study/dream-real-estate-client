@@ -6,12 +6,10 @@ import PropertyBoughtRow from "../../../../PropertyBought/PropertyBoughtRow/Prop
 const PropertySold = () => {
     const [,offers] = useOffered()
     const soldProperty = offers.filter((offer) => offer.status.includes('sold'))
-    console.log(soldProperty);
     let totalSold = 0
     for(const item of soldProperty){
         totalSold += parseInt(item.offer)
     }
-    console.log(totalSold);
     return (
         <div>
             <Helmet>

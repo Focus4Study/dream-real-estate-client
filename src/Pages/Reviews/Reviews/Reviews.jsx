@@ -8,7 +8,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 const Reviews = () => {
     const axiosSecure = useAxiosSecure()
     const [refetch, myReviews] = useMyReviews()
-    console.log(myReviews);
+
 
     const handleDeleteReview = id => {
         Swal.fire({
@@ -22,7 +22,6 @@ const Reviews = () => {
                     axiosSecure.delete(`reviews/${id}`)
                         // .then(res => res.json())
                         .then(data => {
-                            console.log(data);
                             if (data.data.deletedCount > 0) {
                                 Swal.fire({
                                     title: 'Deleted',

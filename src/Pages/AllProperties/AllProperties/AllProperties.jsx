@@ -6,7 +6,7 @@ import PropertyCard from "../PropertyCard/PropertyCard";
 const AllProperties = () => {
     const [, verifiedProperties] = useVerifiedProperties()
     const [query, setQuery] = useState('')
-    console.log(query);
+
 
     const handleSort = (e)=>{
         e.preventDefault()

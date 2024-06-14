@@ -9,7 +9,6 @@ const AddProperty = () => {
 
     const { user } = useAuth()
     const [profile, setProfile] = useState({})
-    console.log(profile.role);
     useEffect(() => {
         axiosSecure.get(`/users/profile/${user?.email}`)
             .then(res => {
@@ -17,11 +16,9 @@ const AddProperty = () => {
             })
     }, [axiosSecure, user?.email])
     const fraud = profile?.role === 'fraud'
-
-    const agent_user_name = user?.name
+    const agent_user_name = user?.displayName || profile?.name
     const agent_image = user?.photoURL
     const email = user?.email
-    console.log(user);
     const {
         register,
         handleSubmit,
@@ -69,7 +66,6 @@ const AddProperty = () => {
                     axiosSecure.post(`/property`, property)
                         // .then(res => res.json())
                         .then(data => {
-                            console.log(data);
                             if (data.data.insertedId) {
                                 Swal.fire({
                                     title: 'Posted',

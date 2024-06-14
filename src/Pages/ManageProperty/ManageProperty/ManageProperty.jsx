@@ -7,7 +7,6 @@ import PropertyRow from "../../UtilizePropertyPages/PropertyRow/PropertyRow";
 const ManageProperty = () => {
         const axiosSecure = useAxiosSecure()
         const [refetch, properties] = useProperties()
-        console.log(properties);
         const handleDelete = id => {
             Swal.fire({
                 title: 'Confirm Delete',
@@ -19,7 +18,6 @@ const ManageProperty = () => {
                     if (result.isConfirmed) {
                         axiosSecure.delete(`property/${id}`)
                             .then(data => {
-                                console.log(data);
                                 if (data.data.deletedCount > 0) {
                                     Swal.fire({
                                         title: 'Deleted',
@@ -39,7 +37,6 @@ const ManageProperty = () => {
         }
 
         const handleVerification = (id, verification_status) =>{
-            console.log(verification_status);
             Swal.fire({
                 title: 'Confirm Update',
                 text: 'Are you sure you would like to Update this property?',
@@ -50,7 +47,6 @@ const ManageProperty = () => {
                     if (result.isConfirmed) {
                         axiosSecure.patch(`/property/status/${id}`, {verification_status})
                             .then(data => {
-                                console.log(data);
                                 if (data.data.modifiedCount>0) {
                                     Swal.fire({
                                         title: 'Updated',

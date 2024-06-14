@@ -27,8 +27,6 @@ const OfferPage = () => {
     }, [id, axiosPublic])
 
     const {_id, agent_name,email,property_image,  property_title, property_location, max_price_range, min_price_range} = item
-    console.log(agent_name);
-    console.log(item);
 
 
     const { user } = useAuth()
@@ -72,7 +70,6 @@ const OfferPage = () => {
                     axiosSecure.delete(`/wishlist/${id}`)
                     axiosPublic.post(`/offers`, offered)
                         .then(res => {
-                            console.log(res);
                             if (res.data.insertedId) {
                                 Swal.fire({
                                     title: 'Offerd',

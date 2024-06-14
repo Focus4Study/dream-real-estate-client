@@ -23,7 +23,6 @@ const Wishlist = () => {
                     axiosSecure.delete(`/wishlist/${id}`)
                         // .then(res => res.json())
                         .then(data => {
-                            console.log(data);
                             if (data.data.deletedCount > 0) {
                                 Swal.fire({
                                     title: 'Deleted',
