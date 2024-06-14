@@ -103,6 +103,7 @@ const AddProperty = () => {
                                                 type="text"
                                                 value={agent_user_name}
                                                 readOnly
+                                                {...register("agent_name_data", { required: true })}
                                                 className="input input-ghost input-bordered text-white border-white w-full mt-3 focus:bg-white focus:bg-opacity-60 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" />
                                         </div>
                                         :
@@ -113,7 +114,7 @@ const AddProperty = () => {
                                                 id="agent_name_data"
                                                 type="text"
                                                 placeholder="Name"
-                                                {...register("agent_name_data", { required: true })}
+                                                {...register("agent_name_data_inserted", { required: true })}
                                                 className="input input-ghost input-bordered text-white border-white w-full mt-3 focus:bg-white focus:bg-opacity-60 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" />
                                         </div>
                                 }

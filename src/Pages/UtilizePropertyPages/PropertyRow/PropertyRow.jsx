@@ -1,8 +1,6 @@
 import { FaUserAlt } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
-import useAuth from "../../../Hooks/useAuth";
 const PropertyRow = ({ property, handleDelete, handleVerification }) => {
-    const {user}=useAuth()
     const {
         _id,
         property_image,
@@ -43,12 +41,8 @@ const PropertyRow = ({ property, handleDelete, handleVerification }) => {
                         :
                         <FaUserAlt className="h-10 w-10" />
                 }
-                {
-                    agent_name ?
-                        <p className="dark:text-gray-600 text-center">{agent_name}</p>
-                        :
-                        <p className="text-center">{user?.displayName}</p>
-                }
+
+                <p className="dark:text-gray-600 text-center">{agent_name}</p>
 
             </td>
 
@@ -103,7 +97,7 @@ const PropertyRow = ({ property, handleDelete, handleVerification }) => {
                 {
                     manageProperties ? (
 
-                        verification || rejected?
+                        verification || rejected ?
                             (<>
                             </>)
                             :
@@ -113,8 +107,8 @@ const PropertyRow = ({ property, handleDelete, handleVerification }) => {
                             )
                     ) : (
                         <button onClick={() => handleDelete(_id)} title="Open details" className="btn dark:text-gray-400 hover:dark:bg-gray-300 focus:dark:bg-gray-300">
-                    Remove
-                </button>
+                            Remove
+                        </button>
                     )
 
 
