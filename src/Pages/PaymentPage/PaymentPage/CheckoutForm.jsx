@@ -121,7 +121,7 @@ const CheckoutForm = (id) => {
             </CardElement>
             <button className="btn mx-auto border-0 px-10 bg-emerald-400 mt-5" type="submit" disabled={!stripe || !clientSecret}>Pay</button>
             <p className="text-red-500">{error}</p>
-            {transactionId && <p className="text-green-600">Your transaction Id : {transactionId}</p>}
+            {transactionId && <p className="text-green-400 font-semibold">Your transaction Id : {transactionId}</p>}
         </form>
     );
 };
