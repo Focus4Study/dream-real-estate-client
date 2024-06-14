@@ -9,7 +9,7 @@ const PrivateRoute = ({children}) => {
 
     if (loading) {
         // todo change this to skeleton loader or loading or something
-        return 'loading rn'
+        return <div className="w-16 h-16 absolute top-2/4 right-1/2 border-4 border-dashed rounded-full border-emerald-500 m-auto animate-spin dark:border-violet-600"></div>
     }
     if (user) {
         return children
