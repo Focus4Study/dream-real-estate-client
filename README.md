@@ -38,14 +38,19 @@ Add the local URL of the client to the CORS origin if running locally. Alternati
   d.TOKEN_SECRET=<your-64bit-hexadecimal-token>
   
 8.Run the Server and Client:<br/>
+
   a.Start the server:<br/>
+  
    1.Open a terminal<br/>
    2.change directory to your project folder cd/ your project name<br/>
    3.nodemon index.js<br/>
+   
   b.Start the client:<br/>
+  
    1.Open a terminal<br/>
    2.change directory to your project folder cd/ your project name<br/>
    3.npm run dev<br/>
+   
 Now you are ready to go!
 
 
