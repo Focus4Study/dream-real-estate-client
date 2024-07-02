@@ -1,22 +1,55 @@
 Dream Real Estate
 
-assignment12_category_0011
-
 Client Side Website Live Link: https://dream-real-estate-efecd.web.app
 <br/>
-Client Side Github Link: https://github.com/programming-hero-web-course1/b9a12-client-side-Focus4Study
+Client Side Github Link: https://github.com/md-yamin/dream-real-estate-client.git
 
 Server Side Live Link: https://dream-real-estate-server.vercel.app
 <br/>
-Server Side Github Link: https://github.com/programming-hero-web-course1/b9a12-server-side-Focus4Study
+Server Side Github Link: https://github.com/md-yamin/dream-real-estate-server.git
 
-1.Has beautiful design
-2.Ensures comfortable user experience
-3.Has Email and password-based Authentication
-4.Has different access levels
-5.Has admin, agent and also fraud verification
-6.Has feature to add listings for sale 
-7.Has feature to add reviews for listing 
-8.Has feature to add to wishlist
-9.Has google login system
-10.Has JWT Implementation
+If you want to clone this website you would need to clone both the client and server ripositories.
+
+1.Clone the Client-Side Repository:<br/>
+ a.git clone https://github.com/md-yamin/dream-real-estate-client.git<br/>
+ b.cd dream-real-estate-client<br/>
+
+2.Install Packages:
+ a.npm install<br/>
+ 
+3.Add Firebase Environment Variables:<br/>
+  Ensure you add your Firebase environment variables to a .env file in the root directory.
+  
+4.Update Request URLs:<br/>
+  Replace all request URLs from https://dream-real-estate-server.vercel.app to the URL where your server is hosted. If running the server locally, use 
+  http://localhost:5173.
+  
+5.Clone the Server-Side Repository:<br/>
+  a.git clone https://github.com/md-yamin/dream-real-estate-server.git
+  b.cd dream-real-estate-server
+
+6.Configure CORS:<br/>
+Add the local URL of the client to the CORS origin if running locally. Alternatively, use * to allow access from any origin.
+
+7.Set Up Environment Variables:<br/>
+  a.Create a .env file with the following variables:
+  b.DB_USER=<your-mongodb-uri-username>
+  c.DB_PASS=<your-mongodb-uri-password>
+  d.TOKEN_SECRET=<your-64bit-hexadecimal-token>
+  
+8.Run the Server and Client:<br/>
+  a.Start the server:<br/>
+   1.Open a terminal<br/>
+   2.change directory to your project folder cd/ your project name<br/>
+   3.nodemon index.js<br/>
+  b.Start the client:<br/>
+   1.Open a terminal<br/>
+   2.change directory to your project folder cd/ your project name<br/>
+   3.npm run dev<br/>
+Now you are ready to go!
+
+
+
+
+
+
